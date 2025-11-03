@@ -44,6 +44,7 @@ public class JuegoDeLaVida(bool[,] tablero)
     public void NextGen()
     {
         tablero[2, 2] = false;
+        tablero[3, 2] = false;
     }
 
     public bool EstaCelulaViva(int posicionX, int posicionY)
