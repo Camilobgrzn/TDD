@@ -24,11 +24,11 @@ public class JuegoDeLaVida(bool[,] tablero)
 {
     public void NextGen()
     {
-        throw new NotImplementedException();
+        tablero[2, 2] = false;
     }
 
-    public bool EstaCelulaViva(int posicionX, object posicionY)
+    public bool EstaCelulaViva(int posicionX, int posicionY)
     {
-        throw new NotImplementedException();
+        return tablero[posicionX, posicionY];
     }
 }
