@@ -18,6 +18,25 @@ public class GameOfLifeTests
         //Assert
         juego.EstaCelulaViva(2, 2).Should().BeFalse();
     }
+
+
+    [Fact]
+    public void DadasDosCelulasVivasConUnaVecina_CuandoAvanzaUnaGeneracion_EntoncesAmbasMueren()
+    {
+        //Arrange
+        var tableroSemilla = new bool[4, 4];
+        tableroSemilla[2, 2] = true;
+        tableroSemilla[3, 2] = true;
+        JuegoDeLaVida juego = new(tableroSemilla);
+
+
+        //Act
+        juego.NextGen();
+
+        //Assert
+        juego.EstaCelulaViva(2, 2).Should().BeFalse();
+        juego.EstaCelulaViva(3, 2).Should().BeFalse();
+    }
 }
 
 public class JuegoDeLaVida(bool[,] tablero)

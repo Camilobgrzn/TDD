@@ -3,8 +3,8 @@
 ## Comportamiento 1
 Cualquier célula viva con menos de dos vecinas vivas muere, como si la causa fuera la infrapoblación
 
-- [ ] Una célula viva con 0 vecinas vivas muere.
-- [ ] Una célula viva con 1 vecina viva muere.
+- [x] Una célula viva con 0 vecinas vivas muere.
+- [ ] 2 células  vivas con 1 vecina viva , las 2 mueren.
 
 
 
