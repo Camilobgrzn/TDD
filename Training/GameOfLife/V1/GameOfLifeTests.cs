@@ -39,7 +39,7 @@ public class GameOfLifeTests
     }
 
     [Fact]
-    public void DadaCelulaVivaConDosVecinasVerticales_CuandoAvanzaUnaGeneracion_EntoncesSobrevive()
+    public void DadaCelulaVivaConDosVecinasVerticalesEnColumna2_CuandoAvanzaUnaGeneracion_EntoncesSobrevive()
     {
         //Arrange
         var tableroSemilla = new bool[4, 4];
