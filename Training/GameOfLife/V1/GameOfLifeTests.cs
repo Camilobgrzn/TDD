@@ -100,17 +100,17 @@ public class JuegoDeLaVida(bool[,] tablero)
 {
     public void NextGen()
     {
-        if (tablero[1, 2] && tablero[2, 2] && tablero[3, 2])
+        if (EstaCelulaViva(1, 2) && EstaCelulaViva(2, 2) && EstaCelulaViva(3, 2))
         {
             tablero[1, 2] = false;
             tablero[3, 2] = false;
         }
-        else if (tablero[1, 1] && tablero[2, 1] && tablero[3, 1])
+        else if (EstaCelulaViva(1, 1) && EstaCelulaViva(2, 1) && EstaCelulaViva(3, 1))
         {
             tablero[1, 1] = false;
             tablero[3, 1] = false;
         }
-        else if (tablero[1, 3] && tablero[2, 3] && tablero[3, 3])
+        else if (EstaCelulaViva(1, 3) && EstaCelulaViva(2, 3) && EstaCelulaViva(3, 3))
         {
             tablero[1, 3] = false;
             tablero[3, 3] = false;
@@ -120,7 +120,6 @@ public class JuegoDeLaVida(bool[,] tablero)
             tablero[2, 2] = false;
             tablero[3, 2] = false;
         }
-        
     }
 
     public bool EstaCelulaViva(int fila, int columna)
