@@ -123,8 +123,8 @@ public class JuegoDeLaVida(bool[,] tablero)
         
     }
 
-    public bool EstaCelulaViva(int posicionX, int posicionY)
+    public bool EstaCelulaViva(int fila, int columna)
     {
-        return tablero[posicionX, posicionY];
+        return tablero[fila, columna];
     }
 }
