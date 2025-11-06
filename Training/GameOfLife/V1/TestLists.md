@@ -11,11 +11,14 @@ Cualquier célula viva con menos de dos vecinas vivas muere, como si la causa fu
 ## Comportamiento 2
 Cualquier célula viva con dos o tres vecinas vivas pasa a la siguiente generación.
 
-- [ ] Una célula viva con dos vecinas verticales vive.
-  - [ ] columa 1
-  - [ ] columa 2
-  - [ ] columa 3
+- [x] Una célula viva con dos vecinas verticales vive.
+  - [x] columna 1
+  - [x] columna 2
+  - [x] columna 3
 - [ ] Una célula viva con dos vecinas horizontales vive.
+  - [ ] fila 1
+  - [ ] fila 2
+  - [ ] fila 3
 - [ ] Una célula viva con dos vecinas diagonales vive.
 - [ ] Una célula viva con tres vecinas vive.
 

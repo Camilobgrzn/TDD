@@ -37,7 +37,7 @@ public class GameOfLifeTests
         juego.EstaCelulaViva(2, 2).Should().BeFalse();
         juego.EstaCelulaViva(3, 2).Should().BeFalse();
     }
-    
+
     [Theory]
     [InlineData(1)]
     [InlineData(2)]
@@ -59,23 +59,42 @@ public class GameOfLifeTests
         juego.EstaCelulaViva(2, columna).Should().BeTrue();
         juego.EstaCelulaViva(3, columna).Should().BeFalse();
     }
+
+    [Fact]
+    public void DadaCelulaVivaConDosVecinasHorizontalesEnFila1_CuandoAvanzaUnaGeneracion_EntoncesSobrevive()
+    {
+        //Arrange
+        var tableroSemilla = new bool[4, 4];
+        tableroSemilla[1, 0] = true;
+        tableroSemilla[1, 1] = true;
+        tableroSemilla[1, 2] = true;
+        JuegoDeLaVida juego = new(tableroSemilla);
+
+        //Act
+        juego.NextGen();
+
+        //Assert
+        juego.EstaCelulaViva(1, 0).Should().BeFalse();
+        juego.EstaCelulaViva(1, 1).Should().BeTrue();
+        juego.EstaCelulaViva(1, 2).Should().BeFalse();
+    }
 }
 
 public class JuegoDeLaVida(bool[,] tablero)
 {
     public void NextGen()
     {
-        if (EstaCelulaViva(2, 2) && ContarVecinasVerticales(2,2) == 2)
+        if (EstaCelulaViva(2, 2) && ContarVecinasVerticales(2, 2) == 2)
         {
             tablero[1, 2] = false;
             tablero[3, 2] = false;
         }
-        else if (EstaCelulaViva(2, 1) && ContarVecinasVerticales(2,1) == 2)
+        else if (EstaCelulaViva(2, 1) && ContarVecinasVerticales(2, 1) == 2)
         {
             tablero[1, 1] = false;
             tablero[3, 1] = false;
         }
-        else if (EstaCelulaViva(2, 3) && ContarVecinasVerticales(2,3) == 2)
+        else if (EstaCelulaViva(2, 3) && ContarVecinasVerticales(2, 3) == 2)
         {
             tablero[1, 3] = false;
             tablero[3, 3] = false;
@@ -91,12 +110,12 @@ public class JuegoDeLaVida(bool[,] tablero)
     {
         var cantidadVecinas = 0;
 
-        if (EstaCelulaViva(fila - 1,columna))
+        if (EstaCelulaViva(fila - 1, columna))
         {
             cantidadVecinas++;
-        } 
-        
-        if(EstaCelulaViva(fila + 1,columna))
+        }
+
+        if (EstaCelulaViva(fila + 1, columna))
         {
             cantidadVecinas++;
         }
