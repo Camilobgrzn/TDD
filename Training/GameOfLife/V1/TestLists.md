@@ -20,7 +20,7 @@ Cualquier célula viva con dos o tres vecinas vivas pasa a la siguiente generaci
   - [X] fila 2
   - [X] fila 3
 - [ ] Una célula viva con dos vecinas diagonales vive.
-  - [ ] diagonal principal \
+  - [x] diagonal principal \
     - [x] desde f1,c1 a f3,c2
     - [x] desde f1,c1 a f3,c3 
     - [x] desde f2,c1 a f4,c3
