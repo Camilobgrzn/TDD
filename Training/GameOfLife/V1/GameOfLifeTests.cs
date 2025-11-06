@@ -100,6 +100,26 @@ public class GameOfLifeTests
         juego.EstaCelulaViva(2, 1).Should().BeTrue();
         juego.EstaCelulaViva(3, 2).Should().BeFalse();
         
+    }   
+    
+    [Fact]
+    public void DadaCelulaVivaConDosVecinasEnDiagonalPrincipalDesdeFila1Columna1HastaFila3Columna3_CuandoAvanzaUnaGeneracion_EntoncesSobrevive()
+    {
+        //Arrange
+        var tableroSemilla = new bool[9, 9];
+        tableroSemilla[1, 1] = true;
+        tableroSemilla[2, 2] = true;
+        tableroSemilla[3, 3] = true;
+        JuegoDeLaVida juego = new(tableroSemilla);
+        
+        //Act
+        juego.NextGen();
+        
+        //Assert
+        juego.EstaCelulaViva(1, 1).Should().BeFalse();
+        juego.EstaCelulaViva(2, 2).Should().BeTrue();
+        juego.EstaCelulaViva(3, 3).Should().BeFalse();
+        
     }
 }
 
