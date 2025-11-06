@@ -177,17 +177,17 @@ public class JuegoDeLaVida(bool[,] tablero)
             tablero[3, 2] = false;
             tablero[3, 0] = false;
         }
-        else if (EstaCelulaViva(2, 1) && EstaCelulaViva(1, 0) && EstaCelulaViva(3, 2))
+        else if (EstaCelulaViva(2, 1) && ContarVecinasDiagonalPrincipal(2, 1) == 2)
         {
             tablero[1, 0] = false;
             tablero[3, 2] = false;
         }
-        else if (EstaCelulaViva(2, 2) && EstaCelulaViva(1, 1) && EstaCelulaViva(3, 3))
+        else if (EstaCelulaViva(2, 2) && ContarVecinasDiagonalPrincipal(2, 2) == 2)
         {
             tablero[1, 1] = false;
             tablero[3, 3] = false;
         }
-        else if (EstaCelulaViva(3,2) && EstaCelulaViva(2,1) && EstaCelulaViva(4,3))
+        else if (EstaCelulaViva(3, 2) && EstaCelulaViva(2, 1) && ContarVecinasDiagonalPrincipal(3, 2) == 2)
         {
             tablero[2, 1] = false;
             tablero[4, 3] = false;
@@ -197,6 +197,18 @@ public class JuegoDeLaVida(bool[,] tablero)
             tablero[2, 2] = false;
             tablero[3, 2] = false;
         }
+    }
+
+    private int ContarVecinasDiagonalPrincipal(int fila, int columna)
+    {
+        var cantidadVecinas = 0;
+
+        if (EstaCelulaViva(fila - 1, columna - 1))
+            cantidadVecinas++;
+        if (EstaCelulaViva(fila + 1, columna + 1))
+            cantidadVecinas++;
+
+        return cantidadVecinas;
     }
 
     private int ContarVecinasHorizontales(int fila, int columna)
