@@ -78,8 +78,8 @@ public class GameOfLifeTests
         juego.EstaCelulaViva(1, 1).Should().BeTrue();
         juego.EstaCelulaViva(1, 2).Should().BeFalse();
     }
-    
-    
+
+
     [Fact]
     public void DadaCelulaVivaConDosVecinasHorizontalesEnFila2_CuandoAvanzaUnaGeneracion_EntoncesSobrevive()
     {
@@ -123,6 +123,11 @@ public class JuegoDeLaVida(bool[,] tablero)
         {
             tablero[1, 2] = false;
             tablero[1, 0] = false;
+        }
+        else if (EstaCelulaViva(2, 1) && EstaCelulaViva(2, 2) && EstaCelulaViva(2, 0))
+        {
+            tablero[2, 2] = false;
+            tablero[2, 0] = false;
         }
         else
         {
