@@ -16,8 +16,8 @@ Cualquier célula viva con dos o tres vecinas vivas pasa a la siguiente generaci
   - [x] columna 2
   - [x] columna 3
 - [ ] Una célula viva con dos vecinas horizontales vive.
-  - [ ] fila 1
-  - [ ] fila 2
+  - [X] fila 1
+  - [X] fila 2
   - [ ] fila 3
 - [ ] Una célula viva con dos vecinas diagonales vive.
 - [ ] Una célula viva con tres vecinas vive.
