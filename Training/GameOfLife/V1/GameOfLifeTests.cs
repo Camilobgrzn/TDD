@@ -59,7 +59,7 @@ public class GameOfLifeTests
         juego.EstaCelulaViva(2, columna).Should().BeTrue();
         juego.EstaCelulaViva(3, columna).Should().BeFalse();
     }
-    
+
     [Theory]
     [InlineData(1)]
     [InlineData(2)]
@@ -83,7 +83,8 @@ public class GameOfLifeTests
     }
 
     [Fact]
-    public void DadaCelulaVivaConDosVecinasEnDiagonalPrincipalDesdeFila1Columna0HastaFila3Columna2_CuandoAvanzaUnaGeneracion_EntoncesSobrevive()
+    public void
+        DadaCelulaVivaConDosVecinasEnDiagonalPrincipalDesdeFila1Columna0HastaFila3Columna2_CuandoAvanzaUnaGeneracion_EntoncesSobrevive()
     {
         //Arrange
         var tableroSemilla = new bool[9, 9];
@@ -91,19 +92,19 @@ public class GameOfLifeTests
         tableroSemilla[2, 1] = true;
         tableroSemilla[3, 2] = true;
         JuegoDeLaVida juego = new(tableroSemilla);
-        
+
         //Act
         juego.NextGen();
-        
+
         //Assert
         juego.EstaCelulaViva(1, 0).Should().BeFalse();
         juego.EstaCelulaViva(2, 1).Should().BeTrue();
         juego.EstaCelulaViva(3, 2).Should().BeFalse();
-        
-    }   
-    
+    }
+
     [Fact]
-    public void DadaCelulaVivaConDosVecinasEnDiagonalPrincipalDesdeFila1Columna1HastaFila3Columna3_CuandoAvanzaUnaGeneracion_EntoncesSobrevive()
+    public void
+        DadaCelulaVivaConDosVecinasEnDiagonalPrincipalDesdeFila1Columna1HastaFila3Columna3_CuandoAvanzaUnaGeneracion_EntoncesSobrevive()
     {
         //Arrange
         var tableroSemilla = new bool[9, 9];
@@ -111,15 +112,34 @@ public class GameOfLifeTests
         tableroSemilla[2, 2] = true;
         tableroSemilla[3, 3] = true;
         JuegoDeLaVida juego = new(tableroSemilla);
-        
+
         //Act
         juego.NextGen();
-        
+
         //Assert
         juego.EstaCelulaViva(1, 1).Should().BeFalse();
         juego.EstaCelulaViva(2, 2).Should().BeTrue();
         juego.EstaCelulaViva(3, 3).Should().BeFalse();
-        
+    }
+
+    [Fact]
+    public void
+        DadaCelulaVivaConDosVecinasEnDiagonalPrincipalDesdeFila2Columna1HastaFila4Columna3_CuandoAvanzaUnaGeneracion_EntoncesSobrevive()
+    {
+        //Arrange
+        var tableroSemilla = new bool[9, 9];
+        tableroSemilla[2, 1] = true;
+        tableroSemilla[3, 2] = true;
+        tableroSemilla[4, 3] = true;
+        JuegoDeLaVida juego = new(tableroSemilla);
+
+        //Act
+        juego.NextGen();
+
+        //Assert
+        juego.EstaCelulaViva(2, 1).Should().BeFalse();
+        juego.EstaCelulaViva(3, 2).Should().BeTrue();
+        juego.EstaCelulaViva(4, 3).Should().BeFalse();
     }
 }
 
