@@ -187,6 +187,11 @@ public class JuegoDeLaVida(bool[,] tablero)
             tablero[1, 1] = false;
             tablero[3, 3] = false;
         }
+        else if (EstaCelulaViva(3,2) && EstaCelulaViva(2,1) && EstaCelulaViva(4,3))
+        {
+            tablero[2, 1] = false;
+            tablero[4, 3] = false;
+        }
         else
         {
             tablero[2, 2] = false;
