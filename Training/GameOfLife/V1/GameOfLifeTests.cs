@@ -59,63 +59,27 @@ public class GameOfLifeTests
         juego.EstaCelulaViva(2, columna).Should().BeTrue();
         juego.EstaCelulaViva(3, columna).Should().BeFalse();
     }
-
-    [Fact]
-    public void DadaCelulaVivaConDosVecinasHorizontalesEnFila1_CuandoAvanzaUnaGeneracion_EntoncesSobrevive()
+    
+    [Theory]
+    [InlineData(1)]
+    [InlineData(2)]
+    [InlineData(3)]
+    public void DadaCelulaVivaConDosVecinasHorizontales_CuandoAvanzaUnaGeneracion_EntoncesSobrevive(int fila)
     {
         //Arrange
         var tableroSemilla = new bool[4, 4];
-        tableroSemilla[1, 0] = true;
-        tableroSemilla[1, 1] = true;
-        tableroSemilla[1, 2] = true;
+        tableroSemilla[fila, 0] = true;
+        tableroSemilla[fila, 1] = true;
+        tableroSemilla[fila, 2] = true;
         JuegoDeLaVida juego = new(tableroSemilla);
 
         //Act
         juego.NextGen();
 
         //Assert
-        juego.EstaCelulaViva(1, 0).Should().BeFalse();
-        juego.EstaCelulaViva(1, 1).Should().BeTrue();
-        juego.EstaCelulaViva(1, 2).Should().BeFalse();
-    }
-
-
-    [Fact]
-    public void DadaCelulaVivaConDosVecinasHorizontalesEnFila2_CuandoAvanzaUnaGeneracion_EntoncesSobrevive()
-    {
-        //Arrange
-        var tableroSemilla = new bool[4, 4];
-        tableroSemilla[2, 0] = true;
-        tableroSemilla[2, 1] = true;
-        tableroSemilla[2, 2] = true;
-        JuegoDeLaVida juego = new(tableroSemilla);
-
-        //Act
-        juego.NextGen();
-
-        //Assert
-        juego.EstaCelulaViva(2, 0).Should().BeFalse();
-        juego.EstaCelulaViva(2, 1).Should().BeTrue();
-        juego.EstaCelulaViva(2, 2).Should().BeFalse();
-    }
-
-    [Fact]
-    public void DadaCelulaVivaConDosVecinasHorizontalesEnFila3_CuandoAvanzaUnaGeneracion_EntoncesSobrevive()
-    {
-        //Arrange
-        var tableroSemilla = new bool[4, 4];
-        tableroSemilla[3, 0] = true;
-        tableroSemilla[3, 1] = true;
-        tableroSemilla[3, 2] = true;
-        JuegoDeLaVida juego = new(tableroSemilla);
-
-        //Act
-        juego.NextGen();
-
-        //Assert
-        juego.EstaCelulaViva(3, 0).Should().BeFalse();
-        juego.EstaCelulaViva(3, 1).Should().BeTrue();
-        juego.EstaCelulaViva(3, 2).Should().BeFalse();
+        juego.EstaCelulaViva(fila, 0).Should().BeFalse();
+        juego.EstaCelulaViva(fila, 1).Should().BeTrue();
+        juego.EstaCelulaViva(fila, 2).Should().BeFalse();
     }
 }
 
