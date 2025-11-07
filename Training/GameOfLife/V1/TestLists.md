@@ -27,7 +27,7 @@ Cualquier célula viva con dos o tres vecinas vivas pasa a la siguiente generaci
   - [ ] diagonal secundaria /
     - [x] desde f3,c1 a f1,c3
     - [x] desde f3,c2 a f1,c4
-    - [ ] desde f4,c2 a f2,c4
+    - [X] desde f4,c2 a f2,c4
 - [ ] Una célula viva con tres vecinas vive.
 
 
