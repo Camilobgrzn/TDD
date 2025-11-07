@@ -89,7 +89,7 @@ public class GameOfLifeTests
     public void
         DadaCelulaVivaConDosVecinasEnDiagonalPrincipal_CuandoAvanzaUnaGeneracion_EntoncesSobrevive
         (
-            int filaCelula1, int columnaCelula1, 
+            int filaCelula1, int columnaCelula1,
             int filaCelula2, int columnaCelula2,
             int filaCelula3, int columnaCelula3
         )
@@ -111,7 +111,8 @@ public class GameOfLifeTests
     }
 
     [Fact]
-    public void DadaCelulaVivaConDosVecinasEnDiagonalSecundariaDesdeFila3Columna1HastaFila1Columna3_CuandoAvanzaUnaGeneracion_EntoncesSobrevive()
+    public void
+        DadaCelulaVivaConDosVecinasEnDiagonalSecundariaDesdeFila3Columna1HastaFila1Columna3_CuandoAvanzaUnaGeneracion_EntoncesSobrevive()
     {
         //Arrange
         var tableroSemilla = new bool[9, 9];
@@ -122,11 +123,11 @@ public class GameOfLifeTests
 
         //Act
         juego.NextGen();
-        
+
         //Arrange
         juego.EstaCelulaViva(3, 1).Should().BeFalse();
         juego.EstaCelulaViva(2, 2).Should().BeTrue();
-        juego.EstaCelulaViva(1, 1).Should().BeTrue();
+        juego.EstaCelulaViva(1, 3).Should().BeFalse();
     }
 }
 
@@ -178,6 +179,11 @@ public class JuegoDeLaVida(bool[,] tablero)
         {
             tablero[2, 1] = false;
             tablero[4, 3] = false;
+        }
+        else if (EstaCelulaViva(2, 2) && EstaCelulaViva(3, 1) && EstaCelulaViva(1, 3))
+        {
+            tablero[3, 1] = false;
+            tablero[1, 3] = false;
         }
         else
         {
