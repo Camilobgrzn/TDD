@@ -110,64 +110,31 @@ public class GameOfLifeTests
         juego.EstaCelulaViva(filaCelula3, columnaCelula3).Should().BeFalse();
     }
 
-    [Fact]
-    public void
-        DadaCelulaVivaConDosVecinasEnDiagonalSecundariaDesdeFila3Columna1HastaFila1Columna3_CuandoAvanzaUnaGeneracion_EntoncesSobrevive()
+    [Theory]
+    [InlineData(3, 1, 2, 2, 1, 3)]
+    [InlineData(3, 2, 2, 3, 1, 4)]
+    [InlineData(4, 2, 3, 3, 2, 4)]
+    public void DadaCelulaVivaConDosVecinasEnDiagonalSecundaria_CuandoAvanzaUnaGeneracion_EntoncesSobrevive
+    (
+        int filaCelula1, int columnaCelula1,
+        int filaCelula2, int columnaCelula2,
+        int filaCelula3, int columnaCelula3
+    )
     {
         //Arrange
         var tableroSemilla = new bool[9, 9];
-        tableroSemilla[3, 1] = true;
-        tableroSemilla[2, 2] = true;
-        tableroSemilla[1, 3] = true;
-        JuegoDeLaVida juego = new(tableroSemilla);
-
-        //Act
-        juego.NextGen();
-
-        //Arrange
-        juego.EstaCelulaViva(3, 1).Should().BeFalse();
-        juego.EstaCelulaViva(2, 2).Should().BeTrue();
-        juego.EstaCelulaViva(1, 3).Should().BeFalse();
-    }
-
-    [Fact]
-    public void
-        DadaCelulaVivaConDosVecinasEnDiagonalSecundariaDesdeFila3Columna2HastaFila1Columna4_CuandoAvanzaUnaGeneracion_EntoncesSobrevive()
-    {
-        //Arrange
-        var tableroSemilla = new bool[9, 9];
-        tableroSemilla[3, 2] = true;
-        tableroSemilla[2, 3] = true;
-        tableroSemilla[1, 4] = true;
-        JuegoDeLaVida juego = new(tableroSemilla);
-
-        //Act
-        juego.NextGen();
-
-        //Arrange
-        juego.EstaCelulaViva(3, 2);
-        juego.EstaCelulaViva(2, 3);
-        juego.EstaCelulaViva(1, 4);
-    }
-
-    [Fact]
-    public void
-        DadaCelulaVivaConDosVecinasEnDiagonalSecundariaDesdeFila4Columna2HastaFila2Columna4_CuandoAvanzaUnaGeneracion_EntoncesSobrevive()
-    {
-        //Arrange
-        var tableroSemilla = new bool[9, 9];
-        tableroSemilla[4, 2] = true;
-        tableroSemilla[3, 3] = true;
-        tableroSemilla[2, 4] = true;
+        tableroSemilla[filaCelula1, columnaCelula1] = true;
+        tableroSemilla[filaCelula2, columnaCelula2] = true;
+        tableroSemilla[filaCelula3, columnaCelula3] = true;
         JuegoDeLaVida juego = new(tableroSemilla);
 
         //Act
         juego.NextGen();
 
         //Assert
-        juego.EstaCelulaViva(4, 2).Should().BeFalse();
-        juego.EstaCelulaViva(3, 3).Should().BeTrue();
-        juego.EstaCelulaViva(2, 4).Should().BeFalse();
+        juego.EstaCelulaViva(filaCelula1, columnaCelula1).Should().BeFalse();
+        juego.EstaCelulaViva(filaCelula2, columnaCelula2).Should().BeTrue();
+        juego.EstaCelulaViva(filaCelula3, columnaCelula3).Should().BeFalse();
     }
 }
 
@@ -220,17 +187,17 @@ public class JuegoDeLaVida(bool[,] tablero)
             tablero[2, 1] = false;
             tablero[4, 3] = false;
         }
-        else if (EstaCelulaViva(2, 2) && EstaCelulaViva(3, 1) && EstaCelulaViva(1, 3))
+        else if (EstaCelulaViva(2, 2) && ContarVecinasDiagonalSecundaria(2, 2) == 2)
         {
             tablero[3, 1] = false;
             tablero[1, 3] = false;
         }
-        else if (EstaCelulaViva(2, 3) && EstaCelulaViva(3, 2) && EstaCelulaViva(1, 4))
+        else if (EstaCelulaViva(2, 3) && ContarVecinasDiagonalSecundaria(2, 3) == 2)
         {
             tablero[3, 2] = false;
             tablero[1, 4] = false;
         }
-        else if (EstaCelulaViva(3, 3) && EstaCelulaViva(4, 2) && EstaCelulaViva(2, 4))
+        else if (EstaCelulaViva(3, 3) && ContarVecinasDiagonalSecundaria(3, 3) == 2)
         {
             tablero[4, 2] = false;
             tablero[2, 4] = false;
@@ -240,6 +207,19 @@ public class JuegoDeLaVida(bool[,] tablero)
             tablero[2, 2] = false;
             tablero[3, 2] = false;
         }
+    }
+
+    
+    private int ContarVecinasDiagonalSecundaria(int fila, int columna)
+    {
+        var cantidadVecinas = 0;
+
+        if (EstaCelulaViva(fila - 1, columna + 1))
+            cantidadVecinas++;
+        if (EstaCelulaViva(fila + 1, columna - 1))
+            cantidadVecinas++;
+
+        return cantidadVecinas;
     }
 
     private int ContarVecinasDiagonalPrincipal(int fila, int columna)
