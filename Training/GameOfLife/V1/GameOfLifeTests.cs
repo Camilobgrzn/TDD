@@ -146,10 +146,10 @@ public class GameOfLifeTests
             { true }
         };
         JuegoDeLaVida juego = new(tableroSemilla);
-        
+
         //Act
         juego.NextGen();
-        
+
         //Arrange
         juego.EstaCelulaViva(0, 0).Should().BeFalse();
     }
@@ -159,7 +159,11 @@ public class JuegoDeLaVida(bool[,] tablero)
 {
     public void NextGen()
     {
-        if (EstaCelulaViva(2, 2) && ContarVecinasVerticales(2, 2) == 2)
+        if (EstaCelulaViva(0, 0) && ContarVecinas(0, 0) == 0)
+        {
+            tablero[0, 0] = false;
+        }
+        else if (EstaCelulaViva(2, 2) && ContarVecinasVerticales(2, 2) == 2)
         {
             tablero[1, 2] = false;
             tablero[3, 2] = false;
@@ -226,6 +230,14 @@ public class JuegoDeLaVida(bool[,] tablero)
         }
     }
 
+    private int ContarVecinas(int fila, int columna)
+    {
+        return ContarVecinasVerticales(fila, columna) +
+               ContarVecinasHorizontales(fila, columna) +
+               ContarVecinasDiagonalPrincipal(fila, columna) +
+               ContarVecinasDiagonalSecundaria(fila, columna);
+    }
+
 
     private int ContarVecinasDiagonalSecundaria(int fila, int columna)
     {
@@ -283,6 +295,13 @@ public class JuegoDeLaVida(bool[,] tablero)
 
     public bool EstaCelulaViva(int fila, int columna)
     {
-        return tablero[fila, columna];
+        try
+        {
+            return tablero[fila, columna];
+        }
+        catch (IndexOutOfRangeException _)
+        {
+            return false;
+        }
     }
 }
