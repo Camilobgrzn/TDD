@@ -67,7 +67,7 @@ public class GameOfLifeTests
 
         //Assert
 
-        tableroSiguienteGeneracion[2, columna] .Should().Be(tableroEsperado[2, columna] );
+        tableroSiguienteGeneracion[2, columna].Should().Be(tableroEsperado[2, columna]);
     }
 
 
@@ -147,7 +147,8 @@ public class GameOfLifeTests
         bool[,] tableroSiguienteGeneracion = juego.NextGen();
 
         //Assert
-        tableroSiguienteGeneracion[filaCelula2, columnaCelula2].Should().Be(tableroEsperado[filaCelula2, columnaCelula2]);
+        tableroSiguienteGeneracion[filaCelula2, columnaCelula2].Should()
+            .Be(tableroEsperado[filaCelula2, columnaCelula2]);
     }
 
     [Fact]
@@ -207,103 +208,32 @@ public class JuegoDeLaVida(bool[,] tablero)
     public bool[,] NextGen()
     {
         var siguienteGeneracion = (bool[,])_tablero.Clone();
-
-
-        if (EstaCelulaViva(0, 0) && ContarVecinas(0, 0) == 0)
-        {
-            siguienteGeneracion[0, 0] = false;
-        }
-        else if (EstaCelulaViva(2, 2) && ContarVecinasVerticales(2, 2) == 2)
-        {
-            siguienteGeneracion[1, 2] = false;
-            siguienteGeneracion[3, 2] = false;
-        }
-        else if (EstaCelulaViva(2, 1) && ContarVecinasVerticales(2, 1) == 2)
-        {
-            siguienteGeneracion[1, 1] = false;
-            siguienteGeneracion[3, 1] = false;
-        }
-        else if (EstaCelulaViva(2, 3) && ContarVecinasVerticales(2, 3) == 2)
-        {
-            siguienteGeneracion[1, 3] = false;
-            siguienteGeneracion[3, 3] = false;
-        }
-        else if (EstaCelulaViva(1, 1) && ContarVecinasHorizontales(1, 1) == 2)
-        {
-            siguienteGeneracion[1, 2] = false;
-            siguienteGeneracion[1, 0] = false;
-        }
-        else if (EstaCelulaViva(2, 1) && ContarVecinasHorizontales(2, 1) == 2)
-        {
-            siguienteGeneracion[2, 2] = false;
-            siguienteGeneracion[2, 0] = false;
-        }
-        else if (EstaCelulaViva(3, 1) && ContarVecinasHorizontales(3, 1) == 2)
-        {
-            siguienteGeneracion[3, 2] = false;
-            siguienteGeneracion[3, 0] = false;
-        }
-        else if (EstaCelulaViva(2, 1) && ContarVecinasDiagonalPrincipal(2, 1) == 2)
-        {
-            siguienteGeneracion[1, 0] = false;
-            siguienteGeneracion[3, 2] = false;
-        }
-        else if (EstaCelulaViva(2, 2) && ContarVecinasDiagonalPrincipal(2, 2) == 2)
-        {
-            siguienteGeneracion[1, 1] = false;
-            siguienteGeneracion[3, 3] = false;
-        }
-        else if (EstaCelulaViva(3, 2) && EstaCelulaViva(2, 1) && ContarVecinasDiagonalPrincipal(3, 2) == 2)
-        {
-            siguienteGeneracion[2, 1] = false;
-            siguienteGeneracion[4, 3] = false;
-        }
-        else if (EstaCelulaViva(2, 2) && ContarVecinasDiagonalSecundaria(2, 2) == 2)
-        {
-            siguienteGeneracion[3, 1] = false;
-            siguienteGeneracion[1, 3] = false;
-        }
-        else if (EstaCelulaViva(2, 3) && ContarVecinasDiagonalSecundaria(2, 3) == 2)
-        {
-            siguienteGeneracion[3, 2] = false;
-            siguienteGeneracion[1, 4] = false;
-        }
-        else if (EstaCelulaViva(3, 3) && ContarVecinasDiagonalSecundaria(3, 3) == 2)
-        {
-            siguienteGeneracion[4, 2] = false;
-            siguienteGeneracion[2, 4] = false;
-        }
-        else
-        {
-            siguienteGeneracion[2, 2] = false;
-            siguienteGeneracion[3, 2] = false;
-        }
-
-
-        var maxfilas = _tablero.GetLength(0);
+        var maxFilas = _tablero.GetLength(0);
         var maxColumnas = _tablero.GetLongLength(1);
-
-        if (maxfilas == 5 && maxColumnas == 5)
+        for (int fila = 0; fila < maxFilas; fila++)
         {
-            for (int fila = 1; fila < maxfilas; fila++)
+            for (int columna = 0; columna < maxColumnas; columna++)
             {
-                for (int columna = 1; columna < maxColumnas; columna++)
+                int cantidadCelulasVecinasVivas = ContarVecinas(fila, columna);
+
+                bool vive = _tablero[fila,columna];
+                
+                
+
+                if (EstaCelulaViva(fila, columna) && cantidadCelulasVecinasVivas is > 1 and <= 3)
                 {
-                    int cantidadCelulasVecinasVivas = ContarVecinas(fila, columna);
-
-                    bool vive = false;
-
-                    if (EstaCelulaViva(fila, columna) && cantidadCelulasVecinasVivas is > 1 and <= 3)
-                    {
-                        vive = true;
-                    }
-                    else if (!EstaCelulaViva(fila, columna) && cantidadCelulasVecinasVivas == 3)
-                    {
-                        vive = true;
-                    }
-
-                    siguienteGeneracion[fila, columna] = vive;
+                    vive = true;
                 }
+                else if (!EstaCelulaViva(fila, columna) && cantidadCelulasVecinasVivas == 3)
+                {
+                    vive = true;
+                }
+                else if(EstaCelulaViva(fila, columna) && cantidadCelulasVecinasVivas < 2)
+                {
+                    vive = false;
+                }
+
+                siguienteGeneracion[fila, columna] = vive;
             }
         }
 
