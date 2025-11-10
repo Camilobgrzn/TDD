@@ -263,6 +263,10 @@ public class JuegoDeLaVida(bool[,] tablero)
                 {
                     vive = false;
                 }
+                else if (EstaCelulaViva(fila, columna) && cantidadCelulasVecinasVivas == 4)
+                {
+                    vive = false;
+                }
 
                 siguienteGeneracion[fila, columna] = vive;
             }
