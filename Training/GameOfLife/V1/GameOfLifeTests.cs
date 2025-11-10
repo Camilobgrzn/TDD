@@ -199,7 +199,7 @@ public class GameOfLifeTests
         //Assert
         tableroSiguienteGeneracion.Should().BeEquivalentTo(tableroEsperado);
     }
-    
+
     [Fact]
     public void DadaCelulaVivaConCuatroVecinasVivas_CuandoAvanzaUnaGeneracion_EntoncesMuere()
     {
@@ -212,7 +212,7 @@ public class GameOfLifeTests
             { false, false, true, false, false },
             { false, false, false, false, false }
         };
-        bool[,] tableroEsperado = 
+        bool[,] tableroEsperado =
         {
             { false, false, false, false, false },
             { false, true, true, true, false },
@@ -222,7 +222,7 @@ public class GameOfLifeTests
         };
 
         JuegoDeLaVida juego = new(tableroSemilla);
-        
+
 
         //Act
         bool[,] tableroSiguienteGeneracion = juego.NextGen();
@@ -244,7 +244,7 @@ public class GameOfLifeTests
             { false, false, true, false, false },
             { false, false, false, false, false }
         };
-        bool[,] tableroEsperado = 
+        bool[,] tableroEsperado =
         {
             { false, false, false, false, false },
             { false, true, false, true, false },
@@ -254,7 +254,7 @@ public class GameOfLifeTests
         };
 
         JuegoDeLaVida juego = new(tableroSemilla);
-        
+
 
         //Act
         bool[,] tableroSiguienteGeneracion = juego.NextGen();
@@ -277,29 +277,7 @@ public class JuegoDeLaVida(bool[,] tablero)
         {
             for (int columna = 0; columna < maxColumnas; columna++)
             {
-                int cantidadCelulasVecinasVivas = ContarVecinas(fila, columna);
-
-                bool vive = _tablero[fila,columna];
-                
-                
-
-                if (EstaCelulaViva(fila, columna) && cantidadCelulasVecinasVivas is > 1 and <= 3)
-                {
-                    vive = true;
-                }
-                else if (!EstaCelulaViva(fila, columna) && cantidadCelulasVecinasVivas == 3)
-                {
-                    vive = true;
-                }
-                else if(EstaCelulaViva(fila, columna) && cantidadCelulasVecinasVivas < 2)
-                {
-                    vive = false;
-                }
-                else if (EstaCelulaViva(fila, columna) && cantidadCelulasVecinasVivas > 3)
-                {
-                    vive = false;
-                }
-
+                var vive = EstaCelulaVivaSiguienteGeneracion(fila, columna);
                 siguienteGeneracion[fila, columna] = vive;
             }
         }
@@ -307,6 +285,43 @@ public class JuegoDeLaVida(bool[,] tablero)
         _tablero = siguienteGeneracion;
 
         return siguienteGeneracion;
+    }
+
+    private bool EstaCelulaVivaSiguienteGeneracion(int fila, int columna)
+    {
+        int vecinas = ContarVecinas(fila, columna);
+        bool estaCelulaViva = EstaCelulaViva(fila, columna);
+
+
+        if (Sobrevive(estaCelulaViva, vecinas)) return true;
+
+        if (HayReproduccion(estaCelulaViva, vecinas)) return true;
+
+        if (HayInfrapoblacion(estaCelulaViva, vecinas)) return false;
+
+        if (HaySobrepoblacion(estaCelulaViva, vecinas)) return false;
+
+        return estaCelulaViva;
+    }
+
+    private static bool HaySobrepoblacion(bool estaCelulaViva, int cantidadCelulasVecinasVivas)
+    {
+        return estaCelulaViva && cantidadCelulasVecinasVivas > 3;
+    }
+
+    private static bool HayInfrapoblacion(bool estaCelulaViva, int cantidadCelulasVecinasVivas)
+    {
+        return estaCelulaViva && cantidadCelulasVecinasVivas < 2;
+    }
+
+    private static bool HayReproduccion(bool estaCelulaViva, int cantidadCelulasVecinasVivas)
+    {
+        return !estaCelulaViva && cantidadCelulasVecinasVivas == 3;
+    }
+
+    private static bool Sobrevive(bool estaCelulaViva, int cantidadCelulasVecinasVivas)
+    {
+        return estaCelulaViva && cantidadCelulasVecinasVivas is > 1 and <= 3;
     }
 
     private int ContarVecinas(int fila, int columna)
