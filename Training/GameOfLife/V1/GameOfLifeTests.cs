@@ -1,4 +1,6 @@
 ﻿using AwesomeAssertions;
+using System.Linq;
+using System.Numerics;
 
 namespace GameOfLife.V1.Tests;
 
@@ -8,15 +10,21 @@ public class GameOfLifeTests
     public void DadaCelulaVivaSinVecinas_CuandoAvanzaUnaGeneracion_EntoncesMuere()
     {
         //Arrange
-        bool[,] tableroSemilla = new bool[4, 4];
-        tableroSemilla[2, 2] = true;
+        var tableroSemilla = new bool[4, 4]
+        {
+            { false, false, false, false },
+            { false, false, false, false },
+            { false, false, true, false },
+            { false, false, false, false },
+        };
+        var tableroEsperado = new bool[4, 4];
         JuegoDeLaVida juego = new(tableroSemilla);
 
         //Act
-        juego.NextGen();
+        bool[,] tableroSiguienteGeneracion = juego.NextGen();
 
         //Assert
-        juego.EstaCelulaViva(2, 2).Should().BeFalse();
+        tableroSiguienteGeneracion.Should().BeEquivalentTo(tableroEsperado);
     }
 
 
@@ -27,16 +35,18 @@ public class GameOfLifeTests
         var tableroSemilla = new bool[4, 4];
         tableroSemilla[2, 2] = true;
         tableroSemilla[3, 2] = true;
+        var tableroEsperado = new bool[4, 4];
         JuegoDeLaVida juego = new(tableroSemilla);
 
 
         //Act
-        juego.NextGen();
+        bool[,] tableroSiguienteGeneracion = juego.NextGen();
+
 
         //Assert
-        juego.EstaCelulaViva(2, 2).Should().BeFalse();
-        juego.EstaCelulaViva(3, 2).Should().BeFalse();
+        tableroSiguienteGeneracion.Should().BeEquivalentTo(tableroEsperado);
     }
+
 
     [Theory]
     [InlineData(1)]
@@ -49,16 +59,19 @@ public class GameOfLifeTests
         tableroSemilla[1, columna] = true;
         tableroSemilla[2, columna] = true;
         tableroSemilla[3, columna] = true;
+        var tableroEsperado = new bool[4, 4];
+        tableroEsperado[2, columna] = true;
+
         JuegoDeLaVida juego = new(tableroSemilla);
 
         //Act
-        juego.NextGen();
+        bool[,] tableroSiguienteGeneracion = juego.NextGen();
 
         //Assert
-        juego.EstaCelulaViva(1, columna).Should().BeFalse();
-        juego.EstaCelulaViva(2, columna).Should().BeTrue();
-        juego.EstaCelulaViva(3, columna).Should().BeFalse();
+
+        tableroSiguienteGeneracion.Should().BeEquivalentTo(tableroEsperado);
     }
+
 
     [Theory]
     [InlineData(1)]
@@ -71,15 +84,15 @@ public class GameOfLifeTests
         tableroSemilla[fila, 0] = true;
         tableroSemilla[fila, 1] = true;
         tableroSemilla[fila, 2] = true;
+        var tabelroEsperado = new bool[4, 4];
+        tabelroEsperado[fila, 1] = true;
         JuegoDeLaVida juego = new(tableroSemilla);
 
         //Act
-        juego.NextGen();
+        bool[,] tableroSiguienteGeneracion = juego.NextGen();
 
         //Assert
-        juego.EstaCelulaViva(fila, 0).Should().BeFalse();
-        juego.EstaCelulaViva(fila, 1).Should().BeTrue();
-        juego.EstaCelulaViva(fila, 2).Should().BeFalse();
+        tableroSiguienteGeneracion.Should().BeEquivalentTo(tabelroEsperado);
     }
 
     [Theory]
@@ -99,16 +112,17 @@ public class GameOfLifeTests
         tableroSemilla[filaCelula1, columnaCelula1] = true;
         tableroSemilla[filaCelula2, columnaCelula2] = true;
         tableroSemilla[filaCelula3, columnaCelula3] = true;
+        var tableroEsperado = new bool[9, 9];
+        tableroEsperado[filaCelula2, columnaCelula2] = true;
         JuegoDeLaVida juego = new(tableroSemilla);
 
         //Act
-        juego.NextGen();
+        bool[,] tableroSiguienteGeneracion = juego.NextGen();
 
         //Assert
-        juego.EstaCelulaViva(filaCelula1, columnaCelula1).Should().BeFalse();
-        juego.EstaCelulaViva(filaCelula2, columnaCelula2).Should().BeTrue();
-        juego.EstaCelulaViva(filaCelula3, columnaCelula3).Should().BeFalse();
+        tableroSiguienteGeneracion.Should().BeEquivalentTo(tableroEsperado);
     }
+
 
     [Theory]
     [InlineData(3, 1, 2, 2, 1, 3)]
@@ -126,15 +140,15 @@ public class GameOfLifeTests
         tableroSemilla[filaCelula1, columnaCelula1] = true;
         tableroSemilla[filaCelula2, columnaCelula2] = true;
         tableroSemilla[filaCelula3, columnaCelula3] = true;
+        var tableroEsperado = new bool[9, 9];
+        tableroEsperado[filaCelula2, columnaCelula2] = true;
         JuegoDeLaVida juego = new(tableroSemilla);
 
         //Act
-        juego.NextGen();
+        bool[,] tableroSiguienteGeneracion = juego.NextGen();
 
         //Assert
-        juego.EstaCelulaViva(filaCelula1, columnaCelula1).Should().BeFalse();
-        juego.EstaCelulaViva(filaCelula2, columnaCelula2).Should().BeTrue();
-        juego.EstaCelulaViva(filaCelula3, columnaCelula3).Should().BeFalse();
+        tableroSiguienteGeneracion.Should().BeEquivalentTo(tableroEsperado);
     }
 
     [Fact]
@@ -145,19 +159,21 @@ public class GameOfLifeTests
         {
             { true }
         };
+
+        bool[,] tableroEsperado = new bool[1, 1];
         JuegoDeLaVida juego = new(tableroSemilla);
 
         //Act
-        juego.NextGen();
+        bool[,] tableroSiguienteGeneracion = juego.NextGen();
 
         //Arrange
-        juego.EstaCelulaViva(0, 0).Should().BeFalse();
+        tableroSiguienteGeneracion.Should().BeEquivalentTo(tableroEsperado);
     }
 }
 
 public class JuegoDeLaVida(bool[,] tablero)
 {
-    public void NextGen()
+    public bool[,] NextGen()
     {
         if (EstaCelulaViva(0, 0) && ContarVecinas(0, 0) == 0)
         {
@@ -228,6 +244,8 @@ public class JuegoDeLaVida(bool[,] tablero)
             tablero[2, 2] = false;
             tablero[3, 2] = false;
         }
+
+        return (bool[,])tablero.Clone();
     }
 
     private int ContarVecinas(int fila, int columna)
@@ -293,7 +311,7 @@ public class JuegoDeLaVida(bool[,] tablero)
         return cantidadVecinas;
     }
 
-    public bool EstaCelulaViva(int fila, int columna)
+    private bool EstaCelulaViva(int fila, int columna)
     {
         try
         {
