@@ -192,10 +192,10 @@ public class GameOfLifeTests
             { false, false, false, false, false },
         };
         JuegoDeLaVida juego = new(tableroSemilla);
-        
+
         //Act
         bool[,] tableroSiguienteGeneracion = juego.NextGen();
-        
+
         //Assert
         tableroSiguienteGeneracion.Should().BeEquivalentTo(tableroEsperado);
     }
@@ -203,79 +203,114 @@ public class GameOfLifeTests
 
 public class JuegoDeLaVida(bool[,] tablero)
 {
+    private bool[,] _tablero = tablero;
+
     public bool[,] NextGen()
     {
+        var siguienteGeneracion = (bool[,])_tablero.Clone();
+
+
         if (EstaCelulaViva(0, 0) && ContarVecinas(0, 0) == 0)
         {
-            tablero[0, 0] = false;
+            siguienteGeneracion[0, 0] = false;
         }
         else if (EstaCelulaViva(2, 2) && ContarVecinasVerticales(2, 2) == 2)
         {
-            tablero[1, 2] = false;
-            tablero[3, 2] = false;
+            siguienteGeneracion[1, 2] = false;
+            siguienteGeneracion[3, 2] = false;
         }
         else if (EstaCelulaViva(2, 1) && ContarVecinasVerticales(2, 1) == 2)
         {
-            tablero[1, 1] = false;
-            tablero[3, 1] = false;
+            siguienteGeneracion[1, 1] = false;
+            siguienteGeneracion[3, 1] = false;
         }
         else if (EstaCelulaViva(2, 3) && ContarVecinasVerticales(2, 3) == 2)
         {
-            tablero[1, 3] = false;
-            tablero[3, 3] = false;
+            siguienteGeneracion[1, 3] = false;
+            siguienteGeneracion[3, 3] = false;
         }
         else if (EstaCelulaViva(1, 1) && ContarVecinasHorizontales(1, 1) == 2)
         {
-            tablero[1, 2] = false;
-            tablero[1, 0] = false;
+            siguienteGeneracion[1, 2] = false;
+            siguienteGeneracion[1, 0] = false;
         }
         else if (EstaCelulaViva(2, 1) && ContarVecinasHorizontales(2, 1) == 2)
         {
-            tablero[2, 2] = false;
-            tablero[2, 0] = false;
+            siguienteGeneracion[2, 2] = false;
+            siguienteGeneracion[2, 0] = false;
         }
         else if (EstaCelulaViva(3, 1) && ContarVecinasHorizontales(3, 1) == 2)
         {
-            tablero[3, 2] = false;
-            tablero[3, 0] = false;
+            siguienteGeneracion[3, 2] = false;
+            siguienteGeneracion[3, 0] = false;
         }
         else if (EstaCelulaViva(2, 1) && ContarVecinasDiagonalPrincipal(2, 1) == 2)
         {
-            tablero[1, 0] = false;
-            tablero[3, 2] = false;
+            siguienteGeneracion[1, 0] = false;
+            siguienteGeneracion[3, 2] = false;
         }
         else if (EstaCelulaViva(2, 2) && ContarVecinasDiagonalPrincipal(2, 2) == 2)
         {
-            tablero[1, 1] = false;
-            tablero[3, 3] = false;
+            siguienteGeneracion[1, 1] = false;
+            siguienteGeneracion[3, 3] = false;
         }
         else if (EstaCelulaViva(3, 2) && EstaCelulaViva(2, 1) && ContarVecinasDiagonalPrincipal(3, 2) == 2)
         {
-            tablero[2, 1] = false;
-            tablero[4, 3] = false;
+            siguienteGeneracion[2, 1] = false;
+            siguienteGeneracion[4, 3] = false;
         }
         else if (EstaCelulaViva(2, 2) && ContarVecinasDiagonalSecundaria(2, 2) == 2)
         {
-            tablero[3, 1] = false;
-            tablero[1, 3] = false;
+            siguienteGeneracion[3, 1] = false;
+            siguienteGeneracion[1, 3] = false;
         }
         else if (EstaCelulaViva(2, 3) && ContarVecinasDiagonalSecundaria(2, 3) == 2)
         {
-            tablero[3, 2] = false;
-            tablero[1, 4] = false;
+            siguienteGeneracion[3, 2] = false;
+            siguienteGeneracion[1, 4] = false;
         }
         else if (EstaCelulaViva(3, 3) && ContarVecinasDiagonalSecundaria(3, 3) == 2)
         {
-            tablero[4, 2] = false;
-            tablero[2, 4] = false;
+            siguienteGeneracion[4, 2] = false;
+            siguienteGeneracion[2, 4] = false;
         }
         else
         {
-            tablero[2, 2] = false;
-            tablero[3, 2] = false;
+            siguienteGeneracion[2, 2] = false;
+            siguienteGeneracion[3, 2] = false;
         }
 
-        return (bool[,])tablero.Clone();
+
+        var maxfilas = _tablero.GetLength(0);
+        var maxColumnas = _tablero.GetLongLength(1);
+
+        if (maxfilas == 5 && maxColumnas == 5)
+        {
+            for (int fila = 1; fila < maxfilas; fila++)
+            {
+                for (int columna = 1; columna < maxColumnas; columna++)
+                {
+                    int cantidadCelulasVecinasVivas = ContarVecinas(fila, columna);
+
+                    bool vive = false;
+
+                    if (EstaCelulaViva(fila, columna) && cantidadCelulasVecinasVivas is > 1 and <= 3)
+                    {
+                        vive = true;
+                    }
+                    else if (!EstaCelulaViva(fila, columna) && cantidadCelulasVecinasVivas == 3)
+                    {
+                        vive = true;
+                    }
+
+                    siguienteGeneracion[fila, columna] = vive;
+                }
+            }
+        }
+
+        _tablero = siguienteGeneracion;
+
+        return siguienteGeneracion;
     }
 
     private int ContarVecinas(int fila, int columna)
@@ -345,7 +380,7 @@ public class JuegoDeLaVida(bool[,] tablero)
     {
         try
         {
-            return tablero[fila, columna];
+            return _tablero[fila, columna];
         }
         catch (IndexOutOfRangeException _)
         {

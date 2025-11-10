@@ -28,14 +28,12 @@ Cualquier célula viva con dos o tres vecinas vivas pasa a la siguiente generaci
     - [x] desde f3,c1 a f1,c3
     - [x] desde f3,c2 a f1,c4
     - [X] desde f4,c2 a f2,c4
-- [ ] Una célula viva con tres vecinas vive.
+
 
 
 ## Movimiento y estado
 
-- [ ] Oscilador horizontal 
-- [ ] Oscilador horizontal borde
-- [ ] 2 Osciladores independientes
+- [ ] Oscilador horizontal (Una célula viva con tres vecinas vive.)
 
 ## Comportamiento 3
 Cualquier célula viva con más de tres vecinas vivas muere, como por sobrepoblación.
