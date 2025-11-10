@@ -19,7 +19,7 @@ Cualquier célula viva con dos o tres vecinas vivas pasa a la siguiente generaci
   - [X] fila 1
   - [X] fila 2
   - [X] fila 3
-- [ ] Una célula viva con dos vecinas diagonales vive.
+- [x] Una célula viva con dos vecinas diagonales vive.
   - [x] diagonal principal \
     - [x] desde f1,c1 a f3,c2
     - [x] desde f1,c1 a f3,c3 
@@ -30,6 +30,12 @@ Cualquier célula viva con dos o tres vecinas vivas pasa a la siguiente generaci
     - [X] desde f4,c2 a f2,c4
 - [ ] Una célula viva con tres vecinas vive.
 
+
+## Movimiento y estado
+
+- [ ] Oscilador horizontal 
+- [ ] Oscilador horizontal borde
+- [ ] 2 Osciladores independientes
 
 ## Comportamiento 3
 Cualquier célula viva con más de tres vecinas vivas muere, como por sobrepoblación.
