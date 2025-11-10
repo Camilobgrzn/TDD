@@ -295,7 +295,7 @@ public class JuegoDeLaVida(bool[,] tablero)
                 {
                     vive = false;
                 }
-                else if (EstaCelulaViva(fila, columna) && cantidadCelulasVecinasVivas == 4)
+                else if (EstaCelulaViva(fila, columna) && cantidadCelulasVecinasVivas > 3)
                 {
                     vive = false;
                 }
