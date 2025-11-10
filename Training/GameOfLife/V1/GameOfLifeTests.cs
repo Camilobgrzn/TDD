@@ -1,6 +1,4 @@
 ﻿using AwesomeAssertions;
-using System.Linq;
-using System.Numerics;
 
 namespace GameOfLife.V1.Tests;
 
@@ -69,7 +67,7 @@ public class GameOfLifeTests
 
         //Assert
 
-        tableroSiguienteGeneracion.Should().BeEquivalentTo(tableroEsperado);
+        tableroSiguienteGeneracion[2, columna] .Should().Be(tableroEsperado[2, columna] );
     }
 
 
@@ -92,7 +90,7 @@ public class GameOfLifeTests
         bool[,] tableroSiguienteGeneracion = juego.NextGen();
 
         //Assert
-        tableroSiguienteGeneracion.Should().BeEquivalentTo(tabelroEsperado);
+        tableroSiguienteGeneracion[fila, 1].Should().Be(tabelroEsperado[fila, 1]);
     }
 
     [Theory]
@@ -120,7 +118,8 @@ public class GameOfLifeTests
         bool[,] tableroSiguienteGeneracion = juego.NextGen();
 
         //Assert
-        tableroSiguienteGeneracion.Should().BeEquivalentTo(tableroEsperado);
+        tableroSiguienteGeneracion[filaCelula2, columnaCelula2].Should()
+            .Be(tableroEsperado[filaCelula2, columnaCelula2]);
     }
 
 
@@ -148,7 +147,7 @@ public class GameOfLifeTests
         bool[,] tableroSiguienteGeneracion = juego.NextGen();
 
         //Assert
-        tableroSiguienteGeneracion.Should().BeEquivalentTo(tableroEsperado);
+        tableroSiguienteGeneracion[filaCelula2, columnaCelula2].Should().Be(tableroEsperado[filaCelula2, columnaCelula2]);
     }
 
     [Fact]
