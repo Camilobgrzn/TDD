@@ -230,6 +230,38 @@ public class GameOfLifeTests
         //Assert
         tableroSiguienteGeneracion.Should().BeEquivalentTo(tableroEsperado);
     }
+
+
+    [Fact]
+    public void DadaCelulaVivaConCincoVecinas_CuandoAvanzaUnaGeneracion_EntoncesMuere()
+    {
+        //Arrange
+        bool[,] tableroSemilla =
+        {
+            { false, false, false, false, false },
+            { false, false, true, true, false },
+            { false, true, true, true, false },
+            { false, false, true, false, false },
+            { false, false, false, false, false }
+        };
+        bool[,] tableroEsperado = 
+        {
+            { false, false, false, false, false },
+            { false, true, false, true, false },
+            { false, true, false, false, false },
+            { false, true, true, true, false },
+            { false, false, false, false, false }
+        };
+
+        JuegoDeLaVida juego = new(tableroSemilla);
+        
+
+        //Act
+        bool[,] tableroSiguienteGeneracion = juego.NextGen();
+
+        //Assert
+        tableroSiguienteGeneracion.Should().BeEquivalentTo(tableroEsperado);
+    }
 }
 
 public class JuegoDeLaVida(bool[,] tablero)
