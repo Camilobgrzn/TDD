@@ -61,58 +61,58 @@ TDD<Refactor>🔵: Extraer método para contar vecinas verticales
 
 | # | Commit SHA | Fecha | Etapa | Resumen |
 |---|------------|-------|-------|---------|
-| 1 | b44b3d5 | 2025-11-01 06:20 | Setup | Initial commit |
-| 2 | 0464889 | 2025-11-01 06:50 | Setup | Creación estructura de carpetas |
-| 3 | 49f1a86 | 2025-11-03 09:25 | 🔴 Red | Prueba: célula viva sin vecinas debe morir |
-| 4 | 67ab7bc | 2025-11-03 09:33 | 🟢 Green | Implementación: célula viva sin vecinas muere |
-| 5 | 6e30518 | 2025-11-03 14:04 | 🔴 Red | Prueba: dos células vivas con una vecina mueren |
-| 6 | 188b91e | 2025-11-03 14:12 | 🟢 Green | Implementación: dos células con una vecina mueren |
-| 7 | bd4a293 | 2025-11-03 14:40 | 🔴 Red | Prueba: célula con dos vecinas verticales sobrevive |
-| 8 | f372990 | 2025-11-03 19:33 | 🟢 Green | Implementación: supervivencia con dos vecinas verticales |
-| 9 | 63a317a | 2025-11-03 19:39 | 🔵 Refactor | Renombrar prueba para indicar columna |
-| 10 | 01bf688 | 2025-11-03 19:41 | 🔴 Red | Prueba: dos vecinas verticales en columna 1 |
-| 11 | ab9b411 | 2025-11-04 08:55 | 🟢 Green | Implementación: columna 1 sobrevive |
-| 12 | 39edc24 | 2025-11-05 15:38 | 🔴 Red | Prueba: dos vecinas verticales en columna 3 |
-| 13 | a50d217 | 2025-11-05 15:56 | 🟢 Green | Implementación: columna 3 sobrevive |
-| 14 | 99407c6 | 2025-11-05 16:30 | 🔵 Refactor | Renombrar parámetros a fila y columna |
-| 15 | 38f7ed3 | 2025-11-05 16:38 | 🔵 Refactor | Extraer predicado EstaCelulaViva |
-| 16 | f1c6a2e | 2025-11-06 07:39 | 🔵 Refactor | Extraer método ContarVecinasVerticales |
-| 17 | 34f587b | 2025-11-06 07:55 | 🔵 Refactor | Unificar pruebas verticales en Theory |
-| 18 | a8c9430 | 2025-11-06 08:14 | 🔴 Red | Prueba: célula con dos vecinas horizontales fila 1 |
-| 19 | 47b1798 | 2025-11-06 08:21 | 🟢 Green | Implementación: fila 1 sobrevive |
-| 20 | 6bac9f4 | 2025-11-06 08:23 | 🔴 Red | Prueba: célula con dos vecinas horizontales fila 2 |
-| 21 | e9be331 | 2025-11-06 08:26 | 🟢 Green | Implementación: fila 2 sobrevive |
-| 22 | 22e2d13 | 2025-11-06 08:29 | 🔴 Red | Prueba: célula con dos vecinas horizontales fila 3 |
-| 23 | f7cac72 | 2025-11-06 08:32 | 🟢 Green | Implementación: fila 3 sobrevive |
-| 24 | 1b4c98d | 2025-11-06 08:40 | 🔵 Refactor | Extraer método ContarVecinasHorizontales |
-| 25 | 89ea443 | 2025-11-06 08:45 | 🔵 Refactor | Unificar pruebas horizontales en Theory |
-| 26 | 10451f1 | 2025-11-06 13:40 | 🔴 Red | Prueba: diagonal principal (f1,c0 a f3,c2) |
-| 27 | 42ac411 | 2025-11-06 13:45 | 🟢 Green | Implementación: diagonal principal caso 1 |
-| 28 | c1ba1ba | 2025-11-06 13:52 | 🔴 Red | Prueba: diagonal principal (f1,c1 a f3,c3) |
-| 29 | 9e053ca | 2025-11-06 14:38 | 🟢 Green | Implementación: diagonal principal caso 2 |
-| 30 | 5a660cb | 2025-11-06 14:41 | 🔴 Red | Prueba: diagonal principal (f2,c1 a f4,c3) |
-| 31 | 4d0e696 | 2025-11-06 15:05 | 🟢 Green | Implementación: diagonal principal caso 3 |
-| 32 | 9c778d3 | 2025-11-06 15:47 | 🔵 Refactor | Extraer ContarVecinasDiagonalPrincipal |
-| 33 | ba81905 | 2025-11-06 16:12 | 🔵 Refactor | Unificar pruebas diagonal principal en Theory |
-| 34 | 9caea29 | 2025-11-07 11:47 | 🔴 Red | Prueba: diagonal secundaria (f3,c1 a f1,c3) |
-| 35 | 421f02e | 2025-11-07 11:54 | 🟢 Green | Implementación: diagonal secundaria caso 1 |
-| 36 | e51e42c | 2025-11-07 12:06 | 🔴 Red | Prueba: diagonal secundaria (f3,c2 a f1,c4) |
-| 37 | 54761f2 | 2025-11-07 12:11 | 🟢 Green | Implementación: diagonal secundaria caso 2 |
-| 38 | 527f247 | 2025-11-07 12:30 | 🔴 Red | Prueba: diagonal secundaria (f4,c2 a f2,c4) |
-| 39 | 76c10c7 | 2025-11-07 12:34 | 🟢 Green | Implementación: diagonal secundaria caso 3 |
-| 40 | 3f760d2 | 2025-11-07 13:10 | 🔵 Refactor | Extraer ContarVecinasDiagonalSecundaria + Theory |
-| 41 | 80cde10 | 2025-11-07 13:30 | 🔴 Red | Prueba: célula en mundo 1x1 sin vecinas muere |
-| 42 | 5a6e240 | 2025-11-07 16:36 | 🟢 Green | Implementación: mundo 1x1 funciona |
-| 43 | f9ae205 | 2025-11-10 10:00 | 🔵 Refactor | Cambiar contrato: NextGen devuelve copia + asserts completos |
-| 44 | 074126d | 2025-11-10 10:48 | 🔴 Red | Prueba: oscilador horizontal → vertical |
-| 45 | 2f57b8e | 2025-11-10 12:36 | 🟢 Green | **Foto previa**: simultaneidad introducida |
-| 46 | a2d8d27 | 2025-11-10 14:25 | 🔵 Refactor | Alinear oráculos con intención original (célula única) |
-| 47 | f9d664d | 2025-11-10 14:32 | 🔵 Refactor | Generalizar evolución a todo el tablero |
-| 48 | d9f82cf | 2025-11-10 15:11 | 🔴 Red | Prueba: sobrepoblación (4 vecinas) |
-| 49 | ed45401 | 2025-11-10 15:16 | 🟢 Green | Implementación: sobrepoblación con 4 vecinas |
-| 50 | 96b2df2 | 2025-11-10 15:21 | 🔴 Red | Prueba: sobrepoblación (5 vecinas) |
-| 51 | 3ab44fa | 2025-11-10 15:22 | 🟢 Green | Implementación: sobrepoblación con 5 vecinas |
-| 52 | a92d2c4 | 2025-11-10 17:01 | 🔵 Refactor | Simplificar lógica: extraer predicados de reglas |
+| 1 | [b44b3d5](https://github.com/Camilobgrzn/TDD/commit/b44b3d5) | 2025-11-01 06:20 | Setup | Initial commit |
+| 2 | [0464889](https://github.com/Camilobgrzn/TDD/commit/0464889) | 2025-11-01 06:50 | Setup | Creación estructura de carpetas |
+| 3 | [49f1a86](https://github.com/Camilobgrzn/TDD/commit/49f1a86) | 2025-11-03 09:25 | 🔴 Red | Prueba: célula viva sin vecinas debe morir |
+| 4 | [67ab7bc](https://github.com/Camilobgrzn/TDD/commit/67ab7bc) | 2025-11-03 09:33 | 🟢 Green | Implementación: célula viva sin vecinas muere |
+| 5 | [6e30518](https://github.com/Camilobgrzn/TDD/commit/6e30518) | 2025-11-03 14:04 | 🔴 Red | Prueba: dos células vivas con una vecina mueren |
+| 6 | [188b91e](https://github.com/Camilobgrzn/TDD/commit/188b91e) | 2025-11-03 14:12 | 🟢 Green | Implementación: dos células con una vecina mueren |
+| 7 | [bd4a293](https://github.com/Camilobgrzn/TDD/commit/bd4a293) | 2025-11-03 14:40 | 🔴 Red | Prueba: célula con dos vecinas verticales sobrevive |
+| 8 | [f372990](https://github.com/Camilobgrzn/TDD/commit/f372990) | 2025-11-03 19:33 | 🟢 Green | Implementación: supervivencia con dos vecinas verticales |
+| 9 | [63a317a](https://github.com/Camilobgrzn/TDD/commit/63a317a) | 2025-11-03 19:39 | 🔵 Refactor | Renombrar prueba para indicar columna |
+| 10 | [01bf688](https://github.com/Camilobgrzn/TDD/commit/01bf688) | 2025-11-03 19:41 | 🔴 Red | Prueba: dos vecinas verticales en columna 1 |
+| 11 | [ab9b411](https://github.com/Camilobgrzn/TDD/commit/ab9b411) | 2025-11-04 08:55 | 🟢 Green | Implementación: columna 1 sobrevive |
+| 12 | [39edc24](https://github.com/Camilobgrzn/TDD/commit/39edc24) | 2025-11-05 15:38 | 🔴 Red | Prueba: dos vecinas verticales en columna 3 |
+| 13 | [a50d217](https://github.com/Camilobgrzn/TDD/commit/a50d217) | 2025-11-05 15:56 | 🟢 Green | Implementación: columna 3 sobrevive |
+| 14 | [99407c6](https://github.com/Camilobgrzn/TDD/commit/99407c6) | 2025-11-05 16:30 | 🔵 Refactor | Renombrar parámetros a fila y columna |
+| 15 | [38f7ed3](https://github.com/Camilobgrzn/TDD/commit/38f7ed3) | 2025-11-05 16:38 | 🔵 Refactor | Extraer predicado EstaCelulaViva |
+| 16 | [f1c6a2e](https://github.com/Camilobgrzn/TDD/commit/f1c6a2e) | 2025-11-06 07:39 | 🔵 Refactor | Extraer método ContarVecinasVerticales |
+| 17 | [34f587b](https://github.com/Camilobgrzn/TDD/commit/34f587b) | 2025-11-06 07:55 | 🔵 Refactor | Unificar pruebas verticales en Theory |
+| 18 | [a8c9430](https://github.com/Camilobgrzn/TDD/commit/a8c9430) | 2025-11-06 08:14 | 🔴 Red | Prueba: célula con dos vecinas horizontales fila 1 |
+| 19 | [47b1798](https://github.com/Camilobgrzn/TDD/commit/47b1798) | 2025-11-06 08:21 | 🟢 Green | Implementación: fila 1 sobrevive |
+| 20 | [6bac9f4](https://github.com/Camilobgrzn/TDD/commit/6bac9f4) | 2025-11-06 08:23 | 🔴 Red | Prueba: célula con dos vecinas horizontales fila 2 |
+| 21 | [e9be331](https://github.com/Camilobgrzn/TDD/commit/e9be331) | 2025-11-06 08:26 | 🟢 Green | Implementación: fila 2 sobrevive |
+| 22 | [22e2d13](https://github.com/Camilobgrzn/TDD/commit/22e2d13) | 2025-11-06 08:29 | 🔴 Red | Prueba: célula con dos vecinas horizontales fila 3 |
+| 23 | [f7cac72](https://github.com/Camilobgrzn/TDD/commit/f7cac72) | 2025-11-06 08:32 | 🟢 Green | Implementación: fila 3 sobrevive |
+| 24 | [1b4c98d](https://github.com/Camilobgrzn/TDD/commit/1b4c98d) | 2025-11-06 08:40 | 🔵 Refactor | Extraer método ContarVecinasHorizontales |
+| 25 | [89ea443](https://github.com/Camilobgrzn/TDD/commit/89ea443) | 2025-11-06 08:45 | 🔵 Refactor | Unificar pruebas horizontales en Theory |
+| 26 | [10451f1](https://github.com/Camilobgrzn/TDD/commit/10451f1) | 2025-11-06 13:40 | 🔴 Red | Prueba: diagonal principal (f1,c0 a f3,c2) |
+| 27 | [42ac411](https://github.com/Camilobgrzn/TDD/commit/42ac411) | 2025-11-06 13:45 | 🟢 Green | Implementación: diagonal principal caso 1 |
+| 28 | [c1ba1ba](https://github.com/Camilobgrzn/TDD/commit/c1ba1ba) | 2025-11-06 13:52 | 🔴 Red | Prueba: diagonal principal (f1,c1 a f3,c3) |
+| 29 | [9e053ca](https://github.com/Camilobgrzn/TDD/commit/9e053ca) | 2025-11-06 14:38 | 🟢 Green | Implementación: diagonal principal caso 2 |
+| 30 | [5a660cb](https://github.com/Camilobgrzn/TDD/commit/5a660cb) | 2025-11-06 14:41 | 🔴 Red | Prueba: diagonal principal (f2,c1 a f4,c3) |
+| 31 | [4d0e696](https://github.com/Camilobgrzn/TDD/commit/4d0e696) | 2025-11-06 15:05 | 🟢 Green | Implementación: diagonal principal caso 3 |
+| 32 | [9c778d3](https://github.com/Camilobgrzn/TDD/commit/9c778d3) | 2025-11-06 15:47 | 🔵 Refactor | Extraer ContarVecinasDiagonalPrincipal |
+| 33 | [ba81905](https://github.com/Camilobgrzn/TDD/commit/ba81905) | 2025-11-06 16:12 | 🔵 Refactor | Unificar pruebas diagonal principal en Theory |
+| 34 | [9caea29](https://github.com/Camilobgrzn/TDD/commit/9caea29) | 2025-11-07 11:47 | 🔴 Red | Prueba: diagonal secundaria (f3,c1 a f1,c3) |
+| 35 | [421f02e](https://github.com/Camilobgrzn/TDD/commit/421f02e) | 2025-11-07 11:54 | 🟢 Green | Implementación: diagonal secundaria caso 1 |
+| 36 | [e51e42c](https://github.com/Camilobgrzn/TDD/commit/e51e42c) | 2025-11-07 12:06 | 🔴 Red | Prueba: diagonal secundaria (f3,c2 a f1,c4) |
+| 37 | [54761f2](https://github.com/Camilobgrzn/TDD/commit/54761f2) | 2025-11-07 12:11 | 🟢 Green | Implementación: diagonal secundaria caso 2 |
+| 38 | [527f247](https://github.com/Camilobgrzn/TDD/commit/527f247) | 2025-11-07 12:30 | 🔴 Red | Prueba: diagonal secundaria (f4,c2 a f2,c4) |
+| 39 | [76c10c7](https://github.com/Camilobgrzn/TDD/commit/76c10c7) | 2025-11-07 12:34 | 🟢 Green | Implementación: diagonal secundaria caso 3 |
+| 40 | [3f760d2](https://github.com/Camilobgrzn/TDD/commit/3f760d2) | 2025-11-07 13:10 | 🔵 Refactor | Extraer ContarVecinasDiagonalSecundaria + Theory |
+| 41 | [80cde10](https://github.com/Camilobgrzn/TDD/commit/80cde10) | 2025-11-07 13:30 | 🔴 Red | Prueba: célula en mundo 1x1 sin vecinas muere |
+| 42 | [5a6e240](https://github.com/Camilobgrzn/TDD/commit/5a6e240) | 2025-11-07 16:36 | 🟢 Green | Implementación: mundo 1x1 funciona |
+| 43 | [f9ae205](https://github.com/Camilobgrzn/TDD/commit/f9ae205) | 2025-11-10 10:00 | 🔵 Refactor | Cambiar contrato: NextGen devuelve copia + asserts completos |
+| 44 | [074126d](https://github.com/Camilobgrzn/TDD/commit/074126d) | 2025-11-10 10:48 | 🔴 Red | Prueba: oscilador horizontal → vertical |
+| 45 | [2f57b8e](https://github.com/Camilobgrzn/TDD/commit/2f57b8e) | 2025-11-10 12:36 | 🟢 Green | **Foto previa**: simultaneidad introducida |
+| 46 | [a2d8d27](https://github.com/Camilobgrzn/TDD/commit/a2d8d27) | 2025-11-10 14:25 | 🔵 Refactor | Alinear oráculos con intención original (célula única) |
+| 47 | [f9d664d](https://github.com/Camilobgrzn/TDD/commit/f9d664d) | 2025-11-10 14:32 | 🔵 Refactor | Generalizar evolución a todo el tablero |
+| 48 | [d9f82cf](https://github.com/Camilobgrzn/TDD/commit/d9f82cf) | 2025-11-10 15:11 | 🔴 Red | Prueba: sobrepoblación (4 vecinas) |
+| 49 | [ed45401](https://github.com/Camilobgrzn/TDD/commit/ed45401) | 2025-11-10 15:16 | 🟢 Green | Implementación: sobrepoblación con 4 vecinas |
+| 50 | [96b2df2](https://github.com/Camilobgrzn/TDD/commit/96b2df2) | 2025-11-10 15:21 | 🔴 Red | Prueba: sobrepoblación (5 vecinas) |
+| 51 | [3ab44fa](https://github.com/Camilobgrzn/TDD/commit/3ab44fa) | 2025-11-10 15:22 | 🟢 Green | Implementación: sobrepoblación con 5 vecinas |
+| 52 | [a92d2c4](https://github.com/Camilobgrzn/TDD/commit/a92d2c4) | 2025-11-10 17:01 | 🔵 Refactor | Simplificar lógica: extraer predicados de reglas |
 
 ---
 
@@ -120,7 +120,7 @@ TDD<Refactor>🔵: Extraer método para contar vecinas verticales
 
 ### Ciclo 1: Infrapoblación básica (0 vecinas)
 
-**Commits**: 3-4 (49f1a86, 67ab7bc)
+**Commits**: 3-4 ([49f1a86](https://github.com/Camilobgrzn/TDD/commit/49f1a86), [67ab7bc](https://github.com/Camilobgrzn/TDD/commit/67ab7bc))
 
 #### Rojo: intención y oráculo
 
@@ -161,7 +161,7 @@ No hay refactor explícito en este ciclo (commit de refactor ausente). La estruc
 
 ### Ciclo 2: Infrapoblación con 1 vecina
 
-**Commits**: 5-6 (6e30518, 188b91e)
+**Commits**: 5-6 ([6e30518](https://github.com/Camilobgrzn/TDD/commit/6e30518), [188b91e](https://github.com/Camilobgrzn/TDD/commit/188b91e))
 
 #### Rojo: intención y oráculo
 
@@ -194,7 +194,7 @@ No hay refactor explícito todavía.
 
 ### Ciclo 3: Supervivencia con 2 vecinas verticales (triangulación vertical)
 
-**Commits**: 7-17 (bd4a293, f372990, 63a317a, 01bf688, ab9b411, 39edc24, a50d217, 99407c6, 38f7ed3, f1c6a2e, 34f587b)
+**Commits**: 7-17 ([bd4a293](https://github.com/Camilobgrzn/TDD/commit/bd4a293), [f372990](https://github.com/Camilobgrzn/TDD/commit/f372990), [63a317a](https://github.com/Camilobgrzn/TDD/commit/63a317a), [01bf688](https://github.com/Camilobgrzn/TDD/commit/01bf688), [ab9b411](https://github.com/Camilobgrzn/TDD/commit/ab9b411), [39edc24](https://github.com/Camilobgrzn/TDD/commit/39edc24), [a50d217](https://github.com/Camilobgrzn/TDD/commit/a50d217), [99407c6](https://github.com/Camilobgrzn/TDD/commit/99407c6), [38f7ed3](https://github.com/Camilobgrzn/TDD/commit/38f7ed3), [f1c6a2e](https://github.com/Camilobgrzn/TDD/commit/f1c6a2e), [34f587b](https://github.com/Camilobgrzn/TDD/commit/34f587b))
 
 #### Rojo: intención y oráculo (commits 7, 10, 12)
 
@@ -254,7 +254,7 @@ Se repite para columna 1 y columna 3 con hardcoding similar.
 
 ### Ciclo 4: Supervivencia con 2 vecinas horizontales (triangulación horizontal)
 
-**Commits**: 18-25 (a8c9430, 47b1798, 6bac9f4, e9be331, 22e2d13, f7cac72, 1b4c98d, 89ea443)
+**Commits**: 18-25 ([a8c9430](https://github.com/Camilobgrzn/TDD/commit/a8c9430), [47b1798](https://github.com/Camilobgrzn/TDD/commit/47b1798), [6bac9f4](https://github.com/Camilobgrzn/TDD/commit/6bac9f4), [e9be331](https://github.com/Camilobgrzn/TDD/commit/e9be331), [22e2d13](https://github.com/Camilobgrzn/TDD/commit/22e2d13), [f7cac72](https://github.com/Camilobgrzn/TDD/commit/f7cac72), [1b4c98d](https://github.com/Camilobgrzn/TDD/commit/1b4c98d), [89ea443](https://github.com/Camilobgrzn/TDD/commit/89ea443))
 
 #### Rojo: intención y oráculo (commits 18, 20, 22)
 
@@ -306,7 +306,7 @@ else if (EstaCelulaViva(1,1) && ContarVecinasHorizontales(1,1) == 2) {
 
 ### Ciclo 5: Supervivencia con 2 vecinas en diagonal principal (triangulación diagonal)
 
-**Commits**: 26-33 (10451f1, 42ac411, c1ba1ba, 9e053ca, 5a660cb, 4d0e696, 9c778d3, ba81905)
+**Commits**: 26-33 ([10451f1](https://github.com/Camilobgrzn/TDD/commit/10451f1), [42ac411](https://github.com/Camilobgrzn/TDD/commit/42ac411), [c1ba1ba](https://github.com/Camilobgrzn/TDD/commit/c1ba1ba), [9e053ca](https://github.com/Camilobgrzn/TDD/commit/9e053ca), [5a660cb](https://github.com/Camilobgrzn/TDD/commit/5a660cb), [4d0e696](https://github.com/Camilobgrzn/TDD/commit/4d0e696), [9c778d3](https://github.com/Camilobgrzn/TDD/commit/9c778d3), [ba81905](https://github.com/Camilobgrzn/TDD/commit/ba81905))
 
 #### Rojo: intención y oráculo (commits 26, 28, 30)
 
@@ -360,7 +360,7 @@ else if (EstaCelulaViva(2,1) && ContarVecinasDiagonalPrincipal(2,1) == 2) {
 
 ### Ciclo 6: Supervivencia con 2 vecinas en diagonal secundaria (completar vecindario)
 
-**Commits**: 34-40 (9caea29, 421f02e, e51e42c, 54761f2, 527f247, 76c10c7, 3f760d2)
+**Commits**: 34-40 ([9caea29](https://github.com/Camilobgrzn/TDD/commit/9caea29), [421f02e](https://github.com/Camilobgrzn/TDD/commit/421f02e), [e51e42c](https://github.com/Camilobgrzn/TDD/commit/e51e42c), [54761f2](https://github.com/Camilobgrzn/TDD/commit/54761f2), [527f247](https://github.com/Camilobgrzn/TDD/commit/527f247), [76c10c7](https://github.com/Camilobgrzn/TDD/commit/76c10c7), [3f760d2](https://github.com/Camilobgrzn/TDD/commit/3f760d2))
 
 #### Rojo: intención y oráculo (commits 34, 36, 38)
 
@@ -397,7 +397,7 @@ Theory parametrizada por las tres posiciones.
 
 ### Ciclo 7: Caso límite - Mundo 1×1
 
-**Commits**: 41-42 (80cde10, 5a6e240)
+**Commits**: 41-42 ([80cde10](https://github.com/Camilobgrzn/TDD/commit/80cde10), [5a6e240](https://github.com/Camilobgrzn/TDD/commit/5a6e240))
 
 #### Rojo: intención y oráculo (commit 41)
 
@@ -440,7 +440,7 @@ No hay refactor adicional necesario.
 
 ### Ciclo 8: Refactor del contrato público (preparación para oscilador)
 
-**Commit**: 43 (f9ae205)
+**Commit**: 43 ([f9ae205](https://github.com/Camilobgrzn/TDD/commit/f9ae205))
 
 #### Rojo
 
@@ -470,7 +470,7 @@ No aplica (es refactor).
 
 ### Ciclo 9: Oscilador - Introducción de la "foto previa" (**momento pedagógico clave**)
 
-**Commits**: 44-45 (074126d, 2f57b8e)
+**Commits**: 44-45 ([074126d](https://github.com/Camilobgrzn/TDD/commit/074126d), [2f57b8e](https://github.com/Camilobgrzn/TDD/commit/2f57b8e))
 
 #### Rojo: intención y oráculo (commit 44)
 
@@ -553,7 +553,7 @@ No hay refactor inmediato después de este verde. El commit siguiente (46) será
 
 ### Ciclo 10: Refactor - Generalización de la evolución
 
-**Commits**: 46-47 (a2d8d27, f9d664d)
+**Commits**: 46-47 ([a2d8d27](https://github.com/Camilobgrzn/TDD/commit/a2d8d27), [f9d664d](https://github.com/Camilobgrzn/TDD/commit/f9d664d))
 
 #### Rojo
 
@@ -627,7 +627,7 @@ public bool[,] NextGen() {
 
 ### Ciclo 11: Sobrepoblación (completar las cuatro reglas de Conway)
 
-**Commits**: 48-51 (d9f82cf, ed45401, 96b2df2, 3ab44fa)
+**Commits**: 48-51 ([d9f82cf](https://github.com/Camilobgrzn/TDD/commit/d9f82cf), [ed45401](https://github.com/Camilobgrzn/TDD/commit/ed45401), [96b2df2](https://github.com/Camilobgrzn/TDD/commit/96b2df2), [3ab44fa](https://github.com/Camilobgrzn/TDD/commit/3ab44fa))
 
 #### Rojo: intención y oráculo (commits 48, 50)
 
@@ -667,7 +667,7 @@ No hay refactor adicional necesario tras estos verdes.
 
 ### Ciclo 12: Refactor final - Extraer predicados de las reglas
 
-**Commit**: 52 (a92d2c4)
+**Commit**: 52 ([a92d2c4](https://github.com/Camilobgrzn/TDD/commit/a92d2c4))
 
 #### Rojo
 
@@ -832,76 +832,76 @@ Cambio en el código que mejora su diseño, legibilidad o mantenibilidad sin alt
 ### Lista completa de commits
 
 **Configuración inicial (1-2)**:
-- b44b3d5: Initial commit
-- 0464889: chore: Creación estructura de carpetas
+- [b44b3d5](https://github.com/Camilobgrzn/TDD/commit/b44b3d5): Initial commit
+- [0464889](https://github.com/Camilobgrzn/TDD/commit/0464889): chore: Creación estructura de carpetas
 
 **Infrapoblación (3-6)**:
-- 49f1a86: TDD<Red>🔴: Agregar prueba para célula viva sin vecinas que debe morir
-- 67ab7bc: TDD<Green>🟢: Hacer pasar prueba de célula viva sin vecinas que debe morir
-- 6e30518: TDD<Red>🔴: Agregar prueba para dos células vivas con una vecina que deben morir
-- 188b91e: TDD<Green>🟢: Hacer pasar prueba para dos células vivas con una vecina que deben morir
+- [49f1a86](https://github.com/Camilobgrzn/TDD/commit/49f1a86): TDD<Red>🔴: Agregar prueba para célula viva sin vecinas que debe morir
+- [67ab7bc](https://github.com/Camilobgrzn/TDD/commit/67ab7bc): TDD<Green>🟢: Hacer pasar prueba de célula viva sin vecinas que debe morir
+- [6e30518](https://github.com/Camilobgrzn/TDD/commit/6e30518): TDD<Red>🔴: Agregar prueba para dos células vivas con una vecina que deben morir
+- [188b91e](https://github.com/Camilobgrzn/TDD/commit/188b91e): TDD<Green>🟢: Hacer pasar prueba para dos células vivas con una vecina que deben morir
 
 **Supervivencia vertical (7-17)**:
-- bd4a293: TDD<Red>🔴: Agregar prueba para célula viva con dos vecinas verticales que debe sobrevivir
-- f372990: TDD<Green>🟢: Hacer pasar prueba de dos vecinas verticales (sobrevive)
-- 63a317a: TDD<Refactor>🔵: Renombrar prueba para indicar columna (claridad educativa)
-- 01bf688: TDD<Red>🔴: Agregar prueba para dos vecinas verticales en columna 1 (sobrevive)
-- ab9b411: TDD<Green>🟢: hacer pasar prueba para dos vecinas verticales en columna 1 (sobrevive)
-- 39edc24: TDD<Red>🔴: Agregar prueba para célula viva con dos vecinas verticales en columna 3 que debe sobrevivir
-- a50d217: TDD<Green>🟢: Hacer pasar prueba de célula viva con dos vecinas verticales en columna 3
-- 99407c6: TDD<Refactor>🔵: Renombrar parámetros a fila y columna para mayor claridad
-- 38f7ed3: TDD<Refactor>🔵: Reemplazar lecturas directas por predicado EstaCelulaViva
-- f1c6a2e: TDD<Refactor>🔵: Extraer método para contar vecinas verticales y reemplazar condiciones por conteo == 2
-- 34f587b: TDD<Refactor>🔵: Unificar pruebas de vecinas verticales en Theory parametrizado por columnas
+- [bd4a293](https://github.com/Camilobgrzn/TDD/commit/bd4a293): TDD<Red>🔴: Agregar prueba para célula viva con dos vecinas verticales que debe sobrevivir
+- [f372990](https://github.com/Camilobgrzn/TDD/commit/f372990): TDD<Green>🟢: Hacer pasar prueba de dos vecinas verticales (sobrevive)
+- [63a317a](https://github.com/Camilobgrzn/TDD/commit/63a317a): TDD<Refactor>🔵: Renombrar prueba para indicar columna (claridad educativa)
+- [01bf688](https://github.com/Camilobgrzn/TDD/commit/01bf688): TDD<Red>🔴: Agregar prueba para dos vecinas verticales en columna 1 (sobrevive)
+- [ab9b411](https://github.com/Camilobgrzn/TDD/commit/ab9b411): TDD<Green>🟢: hacer pasar prueba para dos vecinas verticales en columna 1 (sobrevive)
+- [39edc24](https://github.com/Camilobgrzn/TDD/commit/39edc24): TDD<Red>🔴: Agregar prueba para célula viva con dos vecinas verticales en columna 3 que debe sobrevivir
+- [a50d217](https://github.com/Camilobgrzn/TDD/commit/a50d217): TDD<Green>🟢: Hacer pasar prueba de célula viva con dos vecinas verticales en columna 3
+- [99407c6](https://github.com/Camilobgrzn/TDD/commit/99407c6): TDD<Refactor>🔵: Renombrar parámetros a fila y columna para mayor claridad
+- [38f7ed3](https://github.com/Camilobgrzn/TDD/commit/38f7ed3): TDD<Refactor>🔵: Reemplazar lecturas directas por predicado EstaCelulaViva
+- [f1c6a2e](https://github.com/Camilobgrzn/TDD/commit/f1c6a2e): TDD<Refactor>🔵: Extraer método para contar vecinas verticales y reemplazar condiciones por conteo == 2
+- [34f587b](https://github.com/Camilobgrzn/TDD/commit/34f587b): TDD<Refactor>🔵: Unificar pruebas de vecinas verticales en Theory parametrizado por columnas
 
 **Supervivencia horizontal (18-25)**:
-- a8c9430: TDD<Red>🔴: Agregar prueba para célula viva con dos vecinas horizontales en fila 1 que debe sobrevivir
-- 47b1798: TDD<Green>🟢: Hacer pasar prueba de célula viva con dos vecinas horizontales en fila 1
-- 6bac9f4: TDD<Red>🔴: Agregar prueba para célula viva con dos vecinas horizontales en fila 2 que debe sobrevivir
-- e9be331: TDD<Green>🟢: Hacer pasar prueba de célula viva con dos vecinas horizontales en fila 2
-- 22e2d13: TDD<Red>🔴: Agregar prueba para célula viva con dos vecinas horizontales en fila 3 que debe sobrevivir
-- f7cac72: TDD<Green>🟢: Hacer pasar prueba de célula viva con dos vecinas horizontales en fila 3
-- 1b4c98d: TDD<Refactor>🔵: Extraer método para contar vecinas horizontales y reemplazar condiciones por conteo == 2
-- 89ea443: TDD<Refactor>🔵: Unificar pruebas de vecinas horizontales en Theory parametrizado por filas
+- [a8c9430](https://github.com/Camilobgrzn/TDD/commit/a8c9430): TDD<Red>🔴: Agregar prueba para célula viva con dos vecinas horizontales en fila 1 que debe sobrevivir
+- [47b1798](https://github.com/Camilobgrzn/TDD/commit/47b1798): TDD<Green>🟢: Hacer pasar prueba de célula viva con dos vecinas horizontales en fila 1
+- [6bac9f4](https://github.com/Camilobgrzn/TDD/commit/6bac9f4): TDD<Red>🔴: Agregar prueba para célula viva con dos vecinas horizontales en fila 2 que debe sobrevivir
+- [e9be331](https://github.com/Camilobgrzn/TDD/commit/e9be331): TDD<Green>🟢: Hacer pasar prueba de célula viva con dos vecinas horizontales en fila 2
+- [22e2d13](https://github.com/Camilobgrzn/TDD/commit/22e2d13): TDD<Red>🔴: Agregar prueba para célula viva con dos vecinas horizontales en fila 3 que debe sobrevivir
+- [f7cac72](https://github.com/Camilobgrzn/TDD/commit/f7cac72): TDD<Green>🟢: Hacer pasar prueba de célula viva con dos vecinas horizontales en fila 3
+- [1b4c98d](https://github.com/Camilobgrzn/TDD/commit/1b4c98d): TDD<Refactor>🔵: Extraer método para contar vecinas horizontales y reemplazar condiciones por conteo == 2
+- [89ea443](https://github.com/Camilobgrzn/TDD/commit/89ea443): TDD<Refactor>🔵: Unificar pruebas de vecinas horizontales en Theory parametrizado por filas
 
 **Supervivencia diagonal principal (26-33)**:
-- 10451f1: TDD<Red>🔴: Agregar prueba para célula viva con dos vecinas en diagonal principal desde fila 1 columna 0 hasta fila 3 columna 2 que debe sobrevivir
-- 42ac411: TDD<Green>🟢: Hacer pasar prueba de dos vecinas en diagonal principal desde fila 1 columna 0 hasta fila 3 columna 2
-- c1ba1ba: TDD<Red>🔴: Agregar prueba para célula viva con dos vecinas en diagonal principal desde fila 1 columna 1 hasta fila 3 columna 3 que debe sobrevivir
-- 9e053ca: TDD<Green>🟢: Hacer pasar prueba de célula viva con dos vecinas en diagonal principal desde fila 1 columna 1 hasta fila 3 columna 3
-- 5a660cb: TDD<Red>🔴: Agregar prueba para célula viva con dos vecinas en diagonal principal desde fila 2 columna 1 hasta fila 4 columna 3 que debe sobrevivir
-- 4d0e696: TDD<Green>🟢: Hacer pasar prueba de célula viva con dos vecinas en diagonal principal desde fila 2 columna 1 hasta fila 4 columna 3
-- 9c778d3: TDD<Refactor>🔵: Extraer conteo de vecinas en diagonal principal
-- ba81905: TDD<Refactor>🔵: Unificar pruebas de diagonal principal en Theory parametrizado con posiciones de las tres células
+- [10451f1](https://github.com/Camilobgrzn/TDD/commit/10451f1): TDD<Red>🔴: Agregar prueba para célula viva con dos vecinas en diagonal principal desde fila 1 columna 0 hasta fila 3 columna 2 que debe sobrevivir
+- [42ac411](https://github.com/Camilobgrzn/TDD/commit/42ac411): TDD<Green>🟢: Hacer pasar prueba de dos vecinas en diagonal principal desde fila 1 columna 0 hasta fila 3 columna 2
+- [c1ba1ba](https://github.com/Camilobgrzn/TDD/commit/c1ba1ba): TDD<Red>🔴: Agregar prueba para célula viva con dos vecinas en diagonal principal desde fila 1 columna 1 hasta fila 3 columna 3 que debe sobrevivir
+- [9e053ca](https://github.com/Camilobgrzn/TDD/commit/9e053ca): TDD<Green>🟢: Hacer pasar prueba de célula viva con dos vecinas en diagonal principal desde fila 1 columna 1 hasta fila 3 columna 3
+- [5a660cb](https://github.com/Camilobgrzn/TDD/commit/5a660cb): TDD<Red>🔴: Agregar prueba para célula viva con dos vecinas en diagonal principal desde fila 2 columna 1 hasta fila 4 columna 3 que debe sobrevivir
+- [4d0e696](https://github.com/Camilobgrzn/TDD/commit/4d0e696): TDD<Green>🟢: Hacer pasar prueba de célula viva con dos vecinas en diagonal principal desde fila 2 columna 1 hasta fila 4 columna 3
+- [9c778d3](https://github.com/Camilobgrzn/TDD/commit/9c778d3): TDD<Refactor>🔵: Extraer conteo de vecinas en diagonal principal
+- [ba81905](https://github.com/Camilobgrzn/TDD/commit/ba81905): TDD<Refactor>🔵: Unificar pruebas de diagonal principal en Theory parametrizado con posiciones de las tres células
 
 **Supervivencia diagonal secundaria (34-40)**:
-- 9caea29: TDD<Red>🔴: Agregar prueba para célula viva con dos vecinas en diagonal secundaria desde fila 3 columna 1 hasta fila 1 columna 3 que debe sobrevivir
-- 421f02e: TDD<Green>🟢: Hacer pasar prueba de célula viva con dos vecinas en diagonal secundaria desde fila 3 columna 1 hasta fila 1 columna 3
-- e51e42c: TDD<Red>🔴: Agregar prueba para célula viva con dos vecinas en diagonal secundaria desde fila 3 columna 2 hasta fila 1 columna 4 que debe sobrevivir
-- 54761f2: TDD<Green>🟢: Hacer pasar prueba de célula viva con dos vecinas en diagonal secundaria desde fila 3 columna 2 hasta fila 1 columna 4
-- 527f247: TDD<Red>🔴: Agregar prueba para célula viva con dos vecinas en diagonal secundaria desde fila 4 columna 2 hasta fila 2 columna 4 que debe sobrevivir
-- 76c10c7: TDD<Green>🟢: Hacer pasar prueba de célula viva con dos vecinas en diagonal secundaria desde fila 4 columna 2 hasta fila 2 columna 4
-- 3f760d2: TDD<Refactor>🔵: Extraer conteo de vecinas en diagonal secundaria y unificar pruebas en Theory parametrizado por posiciones
+- [9caea29](https://github.com/Camilobgrzn/TDD/commit/9caea29): TDD<Red>🔴: Agregar prueba para célula viva con dos vecinas en diagonal secundaria desde fila 3 columna 1 hasta fila 1 columna 3 que debe sobrevivir
+- [421f02e](https://github.com/Camilobgrzn/TDD/commit/421f02e): TDD<Green>🟢: Hacer pasar prueba de célula viva con dos vecinas en diagonal secundaria desde fila 3 columna 1 hasta fila 1 columna 3
+- [e51e42c](https://github.com/Camilobgrzn/TDD/commit/e51e42c): TDD<Red>🔴: Agregar prueba para célula viva con dos vecinas en diagonal secundaria desde fila 3 columna 2 hasta fila 1 columna 4 que debe sobrevivir
+- [54761f2](https://github.com/Camilobgrzn/TDD/commit/54761f2): TDD<Green>🟢: Hacer pasar prueba de célula viva con dos vecinas en diagonal secundaria desde fila 3 columna 2 hasta fila 1 columna 4
+- [527f247](https://github.com/Camilobgrzn/TDD/commit/527f247): TDD<Red>🔴: Agregar prueba para célula viva con dos vecinas en diagonal secundaria desde fila 4 columna 2 hasta fila 2 columna 4 que debe sobrevivir
+- [76c10c7](https://github.com/Camilobgrzn/TDD/commit/76c10c7): TDD<Green>🟢: Hacer pasar prueba de célula viva con dos vecinas en diagonal secundaria desde fila 4 columna 2 hasta fila 2 columna 4
+- [3f760d2](https://github.com/Camilobgrzn/TDD/commit/3f760d2): TDD<Refactor>🔵: Extraer conteo de vecinas en diagonal secundaria y unificar pruebas en Theory parametrizado por posiciones
 
 **Caso límite (41-42)**:
-- 80cde10: TDD<Red>🔴: Agregar prueba para célula viva en mundo 1x1 con cero vecinas vivas que debe morir
-- 5a6e240: TDD<Green>🟢: Hacer pasar prueba de célula viva en mundo 1x1 con cero vecinas vivas
+- [80cde10](https://github.com/Camilobgrzn/TDD/commit/80cde10): TDD<Red>🔴: Agregar prueba para célula viva en mundo 1x1 con cero vecinas vivas que debe morir
+- [5a6e240](https://github.com/Camilobgrzn/TDD/commit/5a6e240): TDD<Green>🟢: Hacer pasar prueba de célula viva en mundo 1x1 con cero vecinas vivas
 
 **Oscilador y generalización (43-47)**:
-- f9ae205: TDD<Refactor>🔵: Cambiar contrato público para que NextGen devuelva una copia del tablero y comparar tableros completos en los asserts (sin cambiar comportamiento)
-- 074126d: TDD<Red>🔴: Agregar prueba para oscilador horizontal que cambia a vertical tras avanzar una generación
-- 2f57b8e: TDD<Green>🟢: Hacer pasar oscilador horizontal centrado → vertical centrado usando foto previa y acumulación local
-- a2d8d27: TDD<Refactor>🔵: Alinear oráculos de pruebas con la intención original de validar una sola célula
-- f9d664d: TDD<Refactor>🔵: Generalizar la evolución del tablero aplicando las reglas de Conway a todas las celdas
+- [f9ae205](https://github.com/Camilobgrzn/TDD/commit/f9ae205): TDD<Refactor>🔵: Cambiar contrato público para que NextGen devuelva una copia del tablero y comparar tableros completos en los asserts (sin cambiar comportamiento)
+- [074126d](https://github.com/Camilobgrzn/TDD/commit/074126d): TDD<Red>🔴: Agregar prueba para oscilador horizontal que cambia a vertical tras avanzar una generación
+- [2f57b8e](https://github.com/Camilobgrzn/TDD/commit/2f57b8e): TDD<Green>🟢: Hacer pasar oscilador horizontal centrado → vertical centrado usando foto previa y acumulación local
+- [a2d8d27](https://github.com/Camilobgrzn/TDD/commit/a2d8d27): TDD<Refactor>🔵: Alinear oráculos de pruebas con la intención original de validar una sola célula
+- [f9d664d](https://github.com/Camilobgrzn/TDD/commit/f9d664d): TDD<Refactor>🔵: Generalizar la evolución del tablero aplicando las reglas de Conway a todas las celdas
 
 **Sobrepoblación (48-51)**:
-- d9f82cf: TDD<Red>🔴: Agregar prueba de sobrepoblación: célula viva con 4 vecinas debe morir
-- ed45401: TDD<Green>🟢: Hacer pasar prueba de sobrepoblación con 4 vecinas (muere)
-- 96b2df2: TDD<Red>🔴: Agregar prueba generalizada: célula viva con 5 vecinas debe morir
-- 3ab44fa: TDD<Green>🟢: Hacer pasar prueba de sobrepoblación con 5 vecinas (muere)
+- [d9f82cf](https://github.com/Camilobgrzn/TDD/commit/d9f82cf): TDD<Red>🔴: Agregar prueba de sobrepoblación: célula viva con 4 vecinas debe morir
+- [ed45401](https://github.com/Camilobgrzn/TDD/commit/ed45401): TDD<Green>🟢: Hacer pasar prueba de sobrepoblación con 4 vecinas (muere)
+- [96b2df2](https://github.com/Camilobgrzn/TDD/commit/96b2df2): TDD<Red>🔴: Agregar prueba generalizada: célula viva con 5 vecinas debe morir
+- [3ab44fa](https://github.com/Camilobgrzn/TDD/commit/3ab44fa): TDD<Green>🟢: Hacer pasar prueba de sobrepoblación con 5 vecinas (muere)
 
 **Refactor final (52)**:
-- a92d2c4: TDD<Refactor>🔵: Simplificar la lógica de evolución de celdas en el juego de la vida
+- [a92d2c4](https://github.com/Camilobgrzn/TDD/commit/a92d2c4): TDD<Refactor>🔵: Simplificar la lógica de evolución de celdas en el juego de la vida
 
 ---
 
